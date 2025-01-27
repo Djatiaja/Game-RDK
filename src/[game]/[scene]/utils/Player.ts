@@ -1,85 +1,29 @@
 import Direction, { tilesize } from "./const";
+import { PlayerData, PlayerDatas } from "./PlayerData";
 
 export class Player  {
     position: {x: number, y: number};
     speed: number;
     scene: Phaser.Scene;
     object: Phaser.Physics.Arcade.Sprite;
-    sprite: number;
     lastDirection: number;
     isMoving: boolean = false;
     rectangle: Phaser.GameObjects.Rectangle;
+    data : PlayerData
 
     constructor(scene: Phaser.Scene, gender: string){
         this.position = {x: 3 * tilesize, y: 3 *tilesize};
         this.scene = scene;
-        this.speed = 16;
-        this.sprite = gender ==="Pria"? 936:956;
+        this.speed = 11;
+        this.data = gender === "Pria"?{ ...PlayerDatas[0]}:{...PlayerDatas[1]};
+    
         this.lastDirection = Direction.DOWN;
-        this.object =this.scene.physics.add.sprite(this.position.x, this.position.y, 'player' , this.sprite );
+        this.object =this.scene.physics.add.sprite(this.position.x, this.position.y, 'player' );
 
+        this.setupAnimations();
 
-        this.scene.anims.create({
-            key: 'walk-down',
-            frames: this.scene.anims.generateFrameNumbers('player', {start: 936, end: 939}),
-            frameRate: 4,
-            repeat: -1
-        });
-
-        this.scene.anims.create({
-            key: 'walk-up',
-            frames: this.scene.anims.generateFrameNumbers('player', {start: 1014, end: 1017}),
-            frameRate: 4,
-            repeat: -1
-        });
-
-        this.scene.anims.create({
-            key: 'walk-right',
-            frames: this.scene.anims.generateFrameNumbers('player', {start: 975, end: 978}),
-            frameRate: 4,
-            repeat: -1
-        });
-
-        this.scene.anims.create({
-            key: 'walk-left',
-            frames: this.scene.anims.generateFrameNumbers('player', {start: 1053, end: 1056}),
-            frameRate: 4,
-            repeat: -1
-        });
-
-        this.scene.anims.create({
-            key: 'idle-down',
-            frames: [{key: 'player', frame: 936}],
-            frameRate: 4,
-            repeat: -1
-        });
-        
-        this.scene.anims.create({
-            key: 'idle-up',
-            frames: [{key: 'player', frame: 1014}],
-            frameRate: 4,
-            repeat: -1
-        });
-
-        this.scene.anims.create({
-            key: 'idle-right',
-            frames: [{key: 'player', frame: 975}],
-            frameRate: 4,
-            repeat: -1
-        });
-
-        this.scene.anims.create({
-            key: 'idle-left',
-            frames: [{key: 'player', frame: 1053}],
-            frameRate: 4,
-            repeat: -1
-        });
-
-        this.object.play('walk-down');
-
-        this.rectangle= this.scene.add.rectangle(this.position.x, this.position.y, 2, 2, 0x000000, 1);
-        
-
+        this.rectangle= this.scene.add.rectangle(this.position.x, this.position.y, 2, 2, 0x000000, 0);
+    
     }
 
     move(direction: number[]){
@@ -178,4 +122,21 @@ export class Player  {
         }
     }
 
+    setupAnimations(){
+        
+        this.data.animations.forEach(animation => {
+            this.scene.anims.create({
+                key: animation.key,
+                frames: this.scene.anims.generateFrameNumbers('player', {frames: animation.frames}),
+                frameRate: animation.frameRate,
+                repeat: animation.repeat
+            });
+        });
+
+        this.object.play('walk-down');
+    }
+
+    setAchievements(achievement: string){
+        this.data.Achievements[achievement].isAchieved = true;
+    }
 }

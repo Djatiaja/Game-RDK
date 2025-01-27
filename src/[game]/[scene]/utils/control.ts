@@ -11,6 +11,10 @@ export class Control
     keysS: Phaser.Input.Keyboard.Key;
     keysD: Phaser.Input.Keyboard.Key;
     keysSpace: Phaser.Input.Keyboard.Key;
+    C: Phaser.Input.Keyboard.Key;
+    mouse: Phaser.Input.Pointer;
+
+    inInteraction: boolean = false;
 
     constructor(scene: Phaser.Scene){
         this.scene = scene;
@@ -20,12 +24,15 @@ export class Control
         this.keysS = this.scene.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.keysD = this.scene.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         this.keysSpace = this.scene.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        this.C = this.scene.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.C);
+        this.mouse = this.scene.input.activePointer;
     }
 
     getDirectionKeysPressDown(): number[] {
+        
         let directionPlayer: number[] = [];
 
-        if (!this.keys) {
+        if (!this.keys || this.inInteraction) {
             return [direction.NONE];
         }
 
@@ -59,11 +66,25 @@ export class Control
     }
 
     getKeysPressDown() {
-
-        if (this.keysSpace.isDown) {
+        
+        if (this.keysSpace.isDown && !this.inInteraction) {
             return "space";
         }
+
+        if(this.mouse.leftButtonDown() || this.keysSpace.isDown){
+            return "mouse";
+        }
+
+        if(this.C.isDown){
+            return "C"
+        }
+        
+
         return "none";
+    }
+
+    setInInteraction(value: boolean){
+        this.inInteraction = value;
     }
 
     

@@ -8,7 +8,7 @@ const direction = {
 
 export const tilesize = 16;
 
-interface NPC {
+export interface NPC {
     name: string;
     dialogs: DIALOG[];
     position: { x: number, y: number };
@@ -16,7 +16,7 @@ interface NPC {
     src: string[];
 }
 
-interface DIALOG {
+export interface DIALOG {
     name: string;
     dialogs: string;
 }
@@ -27,14 +27,14 @@ export const npcs: NPC[] = [{
     dialogs: [
         {
             name: "panitia",
-            dialogs: "Halo, apa kabar?"
+            dialogs: "Halo, selamat datang di acara kami!"
         },
         {
             name: "Player",
-            dialogs: "Baik-baik saja, terima kasih."
+            dialogs: "Terima kasih, senang berada di sini."
         }
     ],
-    position: { x: 100, y: 100 },
+    position: { x: 100, y: 200 },
     frames: ["panitiaidle1", "panitiaidle2"],
     src: [base + "Karakter RDK/Panitia RDK/Panit lk (1).png", base + "Karakter RDK/Panitia RDK/Panit lk (2).png"],
     },
@@ -43,14 +43,14 @@ export const npcs: NPC[] = [{
         dialogs: [
             {
                 name: "PengunjungIjoLk",
-                dialogs: "Halo, apa kabar?"
+                dialogs: "Hai, sudah lama tidak bertemu!"
             },
             {
                 name: "Player",
-                dialogs: "Baik-baik saja, terima kasih."
+                dialogs: "Iya, sudah lama sekali."
             }
         ],
-        position: { x: 116, y: 100 },
+        position: { x: 116, y: 200 },
         frames: ["PengunjungIjoLk1", "PengunjungIjoLk2"],
         src: [base + "Karakter RDK/Pengunjung/Ijo/Peng ijo lk (1).png", base + "Karakter RDK/Pengunjung/Ijo/Peng ijo lk (2).png"],
     },
@@ -59,14 +59,14 @@ export const npcs: NPC[] = [{
         dialogs: [
             {
                 name: "PengunjungIjoPr",
-                dialogs: "Halo, apa kabar?"
+                dialogs: "Selamat pagi, bagaimana kabarmu?"
             },
             {
                 name: "Player",
-                dialogs: "Baik-baik saja, terima kasih."
+                dialogs: "Pagi, kabar baik. Kamu?"
             }
         ],
-        position: { x: 132, y: 100 },
+        position: { x: 132, y: 200 },
         frames: ["PengunjungIjoPr1", "PengunjungIjoPr2"],
         src: [base + "Karakter RDK/Pengunjung/Ijo/Peng ijo pr (1).png", base + "Karakter RDK/Pengunjung/Ijo/Peng ijo pr (2).png"],
     },
@@ -75,14 +75,14 @@ export const npcs: NPC[] = [{
         dialogs: [
             {
                 name: "PengunjungMerahLk",
-                dialogs: "Halo, apa kabar?"
+                dialogs: "Apa yang kamu lakukan di sini?"
             },
             {
                 name: "Player",
-                dialogs: "Baik-baik saja, terima kasih."
+                dialogs: "Hanya berjalan-jalan."
             }
         ],
-        position: { x: 148, y: 100 },
+        position: { x: 148, y: 200 },
         frames: ["PengunjungMerahLk1", "PengunjungMerahLk2"],
         src: [base + "Karakter RDK/Pengunjung/Merah/Peng merah lk (1).png", base + "Karakter RDK/Pengunjung/Merah/Peng merah lk (2).png"],
     },
@@ -91,14 +91,14 @@ export const npcs: NPC[] = [{
         dialogs: [
             {
                 name: "PengunjungMerahPr",
-                dialogs: "Halo, apa kabar?"
+                dialogs: "Senang bertemu denganmu!"
             },
             {
                 name: "Player",
-                dialogs: "Baik-baik saja, terima kasih."
+                dialogs: "Senang bertemu denganmu juga!"
             }
         ],
-        position: { x: 164, y: 100 },
+        position: { x: 164, y: 200 },
         frames: ["PengunjungMerahPr1", "PengunjungMerahPr2"],
         src: [base + "Karakter RDK/Pengunjung/Merah/Peng merah pr (1).png", base + "Karakter RDK/Pengunjung/Merah/Peng merah pr (2).png"],
     },
@@ -107,14 +107,14 @@ export const npcs: NPC[] = [{
         dialogs: [
             {
                 name: "PengunjungPutihBiruLk",
-                dialogs: "Halo, apa kabar?"
+                dialogs: "Apakah kamu menikmati acara ini?"
             },
             {
                 name: "Player",
-                dialogs: "Baik-baik saja, terima kasih."
+                dialogs: "Ya, sangat menyenangkan!"
             }
         ],
-        position: { x: 180, y: 100 },
+        position: { x: 180, y: 200 },
         frames: ["PengunjungPutihBiruLk1", "PengunjungPutihBiruLk2"],
         src: [base + "Karakter RDK/Pengunjung/Putih-Biru/putih biru lk (1).png", base + "Karakter RDK/Pengunjung/Putih-Biru/putih biru lk (2).png"],
     },
@@ -123,14 +123,14 @@ export const npcs: NPC[] = [{
         dialogs: [
             {
                 name: "PengunjungPutihBiruPr",
-                dialogs: "Halo, apa kabar?"
+                dialogs: "Bagaimana pendapatmu tentang acara ini?"
             },
             {
                 name: "Player",
-                dialogs: "Baik-baik saja, terima kasih."
+                dialogs: "Acara ini sangat bagus!"
             }
         ],
-        position: { x: 196, y: 100 },
+        position: { x: 196, y: 200 },
         frames: ["PengunjungPutihBiruPr1", "PengunjungPutihBiruPr2"],
         src: [base + "Karakter RDK/Pengunjung/Putih-Biru/putih biru pr (1).png", base + "Karakter RDK/Pengunjung/Putih-Biru/putih biru pr (2).png"],
     },
@@ -139,14 +139,14 @@ export const npcs: NPC[] = [{
         dialogs: [
             {
                 name: "PengunjungPutihPutihLk",
-                dialogs: "Halo, apa kabar?"
+                dialogs: "Apakah kamu sudah mencoba makanan di sini?"
             },
             {
                 name: "Player",
-                dialogs: "Baik-baik saja, terima kasih."
+                dialogs: "Belum, tapi aku akan mencobanya nanti."
             }
         ],
-        position: { x: 212, y: 100 },
+        position: { x: 212, y: 200 },
         frames: ["PengunjungPutihPutihLk1", "PengunjungPutihPutihLk2"],
         src: [base + "Karakter RDK/Pengunjung/Putih-Putih/Peng putih lk (1).png", base + "Karakter RDK/Pengunjung/Putih-Putih/Peng putih lk (2).png"],
     },
@@ -155,14 +155,14 @@ export const npcs: NPC[] = [{
         dialogs: [
             {
                 name: "PengunjungPutihPutihPr",
-                dialogs: "Halo, apa kabar?"
+                dialogs: "Apakah kamu datang sendirian?"
             },
             {
                 name: "Player",
-                dialogs: "Baik-baik saja, terima kasih."
+                dialogs: "Tidak, aku datang bersama teman-teman."
             }
         ],
-        position: { x: 228, y: 100 },
+        position: { x: 228, y: 200 },
         frames: ["PengunjungPutihPutihPr1", "PengunjungPutihPutihPr2"],
         src: [base + "Karakter RDK/Pengunjung/Putih-Putih/Peng outih pr (1).png", base + "Karakter RDK/Pengunjung/Putih-Putih/Peng outih pr (2).png"],
     },
@@ -171,14 +171,14 @@ export const npcs: NPC[] = [{
         dialogs: [
             {
                 name: "PengunjungPutihMerahLk",
-                dialogs: "Halo, apa kabar?"
+                dialogs: "Apakah kamu sudah melihat pertunjukan tadi?"
             },
             {
                 name: "Player",
-                dialogs: "Baik-baik saja, terima kasih."
+                dialogs: "Ya, pertunjukannya sangat menarik!"
             }
         ],
-        position: { x: 244, y: 100 },
+        position: { x: 244, y: 200 },
         frames: ["PengunjungPutihMerahLk1", "PengunjungPutihMerahLk2"],
         src: [base + "Karakter RDK/Pengunjung/Putih-Merah/putih merah lk (1).png", base + "Karakter RDK/Pengunjung/Putih-Merah/putih merah lk (2).png"],
     },
@@ -187,18 +187,17 @@ export const npcs: NPC[] = [{
         dialogs: [
             {
                 name: "PengunjungPutihMerahPr",
-                dialogs: "Halo, apa kabar?"
+                dialogs: "Apakah kamu suka musik yang dimainkan di sini?"
             },
             {
                 name: "Player",
-                dialogs: "Baik-baik saja, terima kasih."
+                dialogs: "Ya, musiknya sangat bagus!"
             }
         ],
-        position: { x: 260, y: 100 },
+        position: { x: 260, y: 200 },
         frames: ["PengunjungPutihMerahPr1", "PengunjungPutihMerahPr2"],
         src: [base + "Karakter RDK/Pengunjung/Putih-Merah/putih merah pr (1).png", base + "Karakter RDK/Pengunjung/Putih-Merah/putih merah pr (2).png"],
     }
-    
 ]
 
 export default direction;

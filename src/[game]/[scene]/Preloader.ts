@@ -59,9 +59,23 @@ export class Preloader extends Scene
             });
         });
 
+        // Papan Pengumuman
         this.load.image("papan", "src/assets/game/Pengumuman/Pengumuman Board.png");
         this.load.image("close-button", "src/assets/game/Pengumuman/Exit icon.png");
         this.load.image("poster-competition", "src/assets/game/Pengumuman/RDk-Competition.png");
+
+        // Pause Menu
+        this.load.image("Pause-box", "src/assets/game/Pause/Pause Board.png");
+        this.load.image("Achivement", "src/assets/game/Pause/Achievement PB.png");
+        this.load.image("Pause-Button", "src/assets/game/Pause/Pause Icon.png");
+        this.load.image("Resume-Button", "src/assets/game/Pause/Resume Button.png");
+        this.load.image("Item-Holder", "src/assets/game/Pause/Item PB.png");
+        
+        // Pause item
+        this.load.image("Kupon", "src/assets/game/Item/Kupon RDK.png");
+        this.load.image("Makanan-Kucing", "src/assets/game/Item/Makanan Kucing.png");
+        this.load.image("Makanan-RDK", "src/assets/game/Item/Makanan RDK.png");
+        this.load.image("Uang", "src/assets/game/Item/Uang.png");
 
     }
 

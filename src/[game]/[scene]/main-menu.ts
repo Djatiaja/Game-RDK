@@ -1,5 +1,6 @@
 import { Scene, Tilemaps } from "phaser";
 import { EventBus } from "../EventBus";
+import { Player } from "./utils/Player";
 
 
 
@@ -93,6 +94,7 @@ export class Menu extends Scene
         playButton.setInteractive();
         playButton.on('pointerdown', () => {
             this.scene.start('GameScene', {gender:selectedValue} );
+            // this.scene.start('Pause', { player: new Player(this, selectedValue), text: [] });
         });
         playButton.on('pointerover', () => playButton.setScale(0.55));
         playButton.on('pointerout', () => playButton.setScale(0.5));
