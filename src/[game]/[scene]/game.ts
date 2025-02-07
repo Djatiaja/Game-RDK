@@ -3,8 +3,9 @@ import { EventBus } from "../EventBus";
 import { Player } from "./utils/Player";
 import { Control } from "./utils/control";
 import { npcsAnims } from "./utils/anims";
-import direction, { npcs } from "./utils/const";
+import direction, { npcs, tilesize } from "./utils/const";
 import { Npc } from "./utils/Npc";
+import { Panitia } from "./utils/Spesial NPC/Panitia";
 
 
 interface Dictinary<T> {
@@ -15,7 +16,7 @@ export class GameScene extends Scene
 {
     player!: Player;
     control!: Control;
-    gender: string;
+    gender: string="Pria";
     textBoxContainer!: Phaser.GameObjects.Container;
     zoom!: number;
     objects:Dictinary<Phaser.Geom.Rectangle> = {};
@@ -26,7 +27,7 @@ export class GameScene extends Scene
     constructor ()
     {
         super('GameScene');
-        this.gender= "Pria";
+        
     }
 
     init(data:{gender: string}){
@@ -35,13 +36,29 @@ export class GameScene extends Scene
     }
 
     preload()
-    {
+    { 
         this.loadAnimations();
-
+        this.loadMap();
     }
 
     create()
     {
+        
+        this.scene.launch('Pause', { player: this.player });
+
+        EventBus.on('game-paused', () => {
+            this.scene.pause();
+        });
+
+        EventBus.on('game-resumed', () => {
+            this.scene.resume();
+        });
+
+        
+        EventBus.emit('current-scene-ready', this);
+    }
+
+    loadMap(){
         let map = this.make.tilemap({ key: 'GameRDK' });
 
         const tilesetNames = ['Maskam', 'Tangga', 'Papan', 'brikbaibrik', 'Grass', 'Rumput', 'ALA-14', 'ALA-14-14'];
@@ -60,32 +77,19 @@ export class GameScene extends Scene
         this.cameras.main.startFollow(this.player.object).setScroll(0, 0);
         this.cameras.main.setZoom(this.zoom)
 
+        this.setupCameras()
 
         this.addNpcs();
 
         this.player.object.setCollideWorldBounds(true);
 
         this.addCollision(map)
-
-        this.scene.launch('Pause', { player: this.player });
-
-        EventBus.on('game-paused', () => {
-            this.scene.pause();
-        });
-
-        EventBus.on('game-resumed', () => {
-            this.scene.resume();
-        });
-
-
-        EventBus.emit('current-scene-ready', this);
     }
 
     update()
     {
         let directionPlayer:number[] = this.control.getDirectionKeysPressDown()!;
         this.player.move(directionPlayer);
-        this.setupCameras()
         this.player.animate()
 
         let keys:string = this.control.getKeysPressDown();
@@ -124,7 +128,14 @@ export class GameScene extends Scene
 
     addNpcs(){
         npcs.forEach(npc => {
-            this.npcs.push(new Npc(this, this.player, npc));
+            if(npc.class === "NPC"){
+                this.npcs.push(new Npc(this, this.player, npc));
+            }
+
+            if(npc.class === "Panitia"){
+                this.npcs.push(new Panitia(this, this.player, npc));
+            }
+            
         });
 
     }
@@ -133,9 +144,10 @@ export class GameScene extends Scene
         
         for(let key in npcsAnims){
             for(let anim in npcsAnims[key]){
-                const animConfig:any = npcsAnims[key][anim];
+                const animConfig: any = npcsAnims[key][anim];
                 animConfig.frames = animConfig.frames.map((frame: string) => ({ key: frame }));
                 animConfig.duration = animConfig.duration || 1000;
+                animConfig.duration += Math.random() * 200 - 100;
                 this.anims.create(animConfig);
             }
         }
@@ -144,6 +156,7 @@ export class GameScene extends Scene
     
     setupCameras(){
         this.cameras.main.setBounds(0, 0,32*16, 28*16);
+        this.cameras.main.setRoundPixels(true);
     }
 
     GameEvent(keys:string){
@@ -168,10 +181,11 @@ export class GameScene extends Scene
                             this.control.setInInteraction(false);
                         });
                     }else if (key === "PM-Masjid"){
-                        this.scene.start('Masjid');
+                        this.scene.launch('Masjid', {player: this.player});
                         this.scene.get('Masjid').events.once('shutdown', () => {
                             this.setInInteraction(false);
                             this.control.setInInteraction(false);
+                            this.player.data.Items.Kupon.quantity =1;   
                         });
                     }
                 }
@@ -182,7 +196,7 @@ export class GameScene extends Scene
                 if (Phaser.Geom.Intersects.RectangleToRectangle(playerRect, npcRect)){
                     this.setInInteraction(true)
                     this.control.setInInteraction(true);
-                    this.scene.launch("Textbox", { player: this.player, text: [...npc.data.dialogs] });
+                    npc.interact()
                     this.scene.get("Textbox").events.once('shutdown', () => {
                         this.setInInteraction(false);
                         this.control.setInInteraction(false);

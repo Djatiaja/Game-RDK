@@ -39,6 +39,7 @@ export interface PlayerData{
     Items: Dictinary<Item>;
     animations: Animation[];
     position: {x: number, y: number};
+    NpcInteraction:number;
     
 }
 
@@ -47,13 +48,13 @@ export const PlayerDatas: PlayerData[] = [
         name: "Player",
         Achievements: {
             achievement1: {
-                name: "First Achievement",
+                name: "Social Butterfly",
                 isAchieved: false,
                 image: "achievement1.png",
                 position: { x: - 290, y: 240 }
             },
             achievement2: {
-                name: "Second Achievement",
+                name: "BerOtak Senku",
                 isAchieved: false,
                 image: "achievement2.png",
                 position: { x: 0, y: 240 }
@@ -160,12 +161,75 @@ export const PlayerDatas: PlayerData[] = [
                 repeat: -1
             }
         ],
-        position: { x: 0, y: 0 },
+        position: { x: 256, y: 445.33 },
+        NpcInteraction: 0
     },
     {
         name: "Player",
-        Achievements: {},
-        Items: {},
+        Achievements: {
+            achievement1: {
+                name: "Social Butterfly",
+                isAchieved: false,
+                image: "achievement1.png",
+                position: { x: - 290, y: 240 }
+            },
+            achievement2: {
+                name: "BerOtak Senku",
+                isAchieved: false,
+                image: "achievement2.png",
+                position: { x: 0, y: 240 }
+            },
+            achievement3: {
+                name: "Third Achievement",
+                isAchieved: false,
+                image: "achievement3.png",
+                position: { x: 290, y: 240 }
+            },
+            achievement4: {
+                name: "Fourth Achievement",
+                isAchieved: false,
+                image: "achievement4.png",
+                position: { x:  - 290, y: 310 }
+            },
+            achievement5: {
+                name: "Fifth Achievement",
+                isAchieved: false,
+                image: "achievement5.png",
+                position: { x: 0, y: 310 }
+            },
+            achievement6: {
+                name: "Sixth Achievement",
+                isAchieved: false,
+                image: "achievement6.png",
+                position: { x: 290, y: 310 }
+            }
+        },
+        Items: {
+            Kupon: {
+                name: "Kupon RDK",
+                image: "Kupon",
+                quantity: 1,
+                position: { x: 0, y: 460 }
+            },
+            MakananKucing: {
+                name: "Makanan Kucing",
+                image: "Makanan-Kucing",
+                quantity: 1,
+                position: { x: 90, y: 460 }
+            },
+            MakananRDK: {
+                name: "Makanan",
+                image: "Makanan-RDK",
+                quantity: 1,
+                position: { x: 180, y: 460 }
+            },
+            Uang: {
+                name: "Uang",
+                image: "Uang",
+                quantity: 1,
+                position: { x: 270, y: 460 }
+            },
+        },
         animations: [
             {
                 key: 'walk-down',
@@ -216,6 +280,7 @@ export const PlayerDatas: PlayerData[] = [
                 repeat: -1
             }
         ],
-        position: { x: 0, y: 0 }
+        position: {x: 256, y: 445.33 },
+        NpcInteraction: 0
     },
 ]

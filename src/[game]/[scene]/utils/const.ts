@@ -11,11 +11,14 @@ export const tilesize = 16;
 export interface NPC {
     name: string;
     dialogs: DIALOG[];
+    order:number[][][];
+    correctAnswer: number[];
     position: { x: number, y: number };
     frames: string[];
-    src: string[];
-}
-
+    src: string[]; 
+    class: string;
+    isInteracted?: boolean;
+} 
 export interface DIALOG {
     name: string;
     dialogs: string;
@@ -34,9 +37,12 @@ export const npcs: NPC[] = [{
             dialogs: "Terima kasih, senang berada di sini."
         }
     ],
-    position: { x: 100, y: 200 },
+    order: [[[0,1]]],
+    correctAnswer:[],
+    position: { x: 345.25, y: 216.25 },
     frames: ["panitiaidle1", "panitiaidle2"],
     src: [base + "Karakter RDK/Panitia RDK/Panit lk (1).png", base + "Karakter RDK/Panitia RDK/Panit lk (2).png"],
+    class: "Panitia"
     },
     {
         name: "PengunjungIjoLk",
@@ -50,9 +56,12 @@ export const npcs: NPC[] = [{
                 dialogs: "Iya, sudah lama sekali."
             }
         ],
-        position: { x: 116, y: 200 },
+        order: [[[0,1]]],
+        correctAnswer:[], 
+        position: { x: 492.67, y: 250.67 },
         frames: ["PengunjungIjoLk1", "PengunjungIjoLk2"],
         src: [base + "Karakter RDK/Pengunjung/Ijo/Peng ijo lk (1).png", base + "Karakter RDK/Pengunjung/Ijo/Peng ijo lk (2).png"],
+        class: "NPC"
     },
     {
         name: "PengunjungIjoPr",
@@ -66,9 +75,12 @@ export const npcs: NPC[] = [{
                 dialogs: "Pagi, kabar baik. Kamu?"
             }
         ],
-        position: { x: 132, y: 200 },
+        order: [[[0,1]]],
+        correctAnswer:[],
+        position: { x: 342.50, y: 45.50 },
         frames: ["PengunjungIjoPr1", "PengunjungIjoPr2"],
         src: [base + "Karakter RDK/Pengunjung/Ijo/Peng ijo pr (1).png", base + "Karakter RDK/Pengunjung/Ijo/Peng ijo pr (2).png"],
+        class: "NPC"
     },
     {
         name: "PengunjungMerahLk",
@@ -82,9 +94,12 @@ export const npcs: NPC[] = [{
                 dialogs: "Hanya berjalan-jalan."
             }
         ],
-        position: { x: 148, y: 200 },
+        order: [[[0,1]]],
+        correctAnswer:[],
+        position: { x:  187.50, y: 246.50  },
         frames: ["PengunjungMerahLk1", "PengunjungMerahLk2"],
         src: [base + "Karakter RDK/Pengunjung/Merah/Peng merah lk (1).png", base + "Karakter RDK/Pengunjung/Merah/Peng merah lk (2).png"],
+        class: "NPC"
     },
     {
         name: "PengunjungMerahPr",
@@ -98,9 +113,12 @@ export const npcs: NPC[] = [{
                 dialogs: "Senang bertemu denganmu juga!"
             }
         ],
-        position: { x: 164, y: 200 },
-        frames: ["PengunjungMerahPr1", "PengunjungMerahPr2"],
+        order: [[[0,1]]],
+        correctAnswer:[],
+        position: { x: 105.50, y: 154 },
+        frames: ["PengunjungMerahPr1", "PengunjungMerahPr2"], 
         src: [base + "Karakter RDK/Pengunjung/Merah/Peng merah pr (1).png", base + "Karakter RDK/Pengunjung/Merah/Peng merah pr (2).png"],
+        class: "NPC"
     },
     {
         name: "PengunjungPutihBiruLk",
@@ -114,9 +132,12 @@ export const npcs: NPC[] = [{
                 dialogs: "Ya, sangat menyenangkan!"
             }
         ],
-        position: { x: 180, y: 200 },
+        order: [[[0,1]]],
+        correctAnswer:[],
+        position: { x: 135.50, y: 40  },
         frames: ["PengunjungPutihBiruLk1", "PengunjungPutihBiruLk2"],
         src: [base + "Karakter RDK/Pengunjung/Putih-Biru/putih biru lk (1).png", base + "Karakter RDK/Pengunjung/Putih-Biru/putih biru lk (2).png"],
+        class: "NPC"
     },
     {
         name: "PengunjungPutihBiruPr",
@@ -130,9 +151,12 @@ export const npcs: NPC[] = [{
                 dialogs: "Acara ini sangat bagus!"
             }
         ],
-        position: { x: 196, y: 200 },
+        order: [[[0,1]]],
+        correctAnswer:[],
+        position: { x: 67.50 , y: 420  },
         frames: ["PengunjungPutihBiruPr1", "PengunjungPutihBiruPr2"],
         src: [base + "Karakter RDK/Pengunjung/Putih-Biru/putih biru pr (1).png", base + "Karakter RDK/Pengunjung/Putih-Biru/putih biru pr (2).png"],
+        class: "NPC"
     },
     {
         name: "PengunjungPutihPutihLk",
@@ -146,9 +170,12 @@ export const npcs: NPC[] = [{
                 dialogs: "Belum, tapi aku akan mencobanya nanti."
             }
         ],
+        order: [[[0,1]]],
+        correctAnswer:[],
         position: { x: 212, y: 200 },
         frames: ["PengunjungPutihPutihLk1", "PengunjungPutihPutihLk2"],
         src: [base + "Karakter RDK/Pengunjung/Putih-Putih/Peng putih lk (1).png", base + "Karakter RDK/Pengunjung/Putih-Putih/Peng putih lk (2).png"],
+        class: "NPC"
     },
     {
         name: "PengunjungPutihPutihPr",
@@ -162,9 +189,12 @@ export const npcs: NPC[] = [{
                 dialogs: "Tidak, aku datang bersama teman-teman."
             }
         ],
-        position: { x: 228, y: 200 },
+        order: [[[0,1]]],
+        correctAnswer:[],
+        position: { x: 314, y: 410.33 },
         frames: ["PengunjungPutihPutihPr1", "PengunjungPutihPutihPr2"],
         src: [base + "Karakter RDK/Pengunjung/Putih-Putih/Peng outih pr (1).png", base + "Karakter RDK/Pengunjung/Putih-Putih/Peng outih pr (2).png"],
+        class: "NPC"
     },
     {
         name: "PengunjungPutihMerahLk",
@@ -178,9 +208,12 @@ export const npcs: NPC[] = [{
                 dialogs: "Ya, pertunjukannya sangat menarik!"
             }
         ],
-        position: { x: 244, y: 200 },
+        order: [[[0,1]]],
+        correctAnswer:[],
+        position: { x: 314.50, y: 187.50 },
         frames: ["PengunjungPutihMerahLk1", "PengunjungPutihMerahLk2"],
         src: [base + "Karakter RDK/Pengunjung/Putih-Merah/putih merah lk (1).png", base + "Karakter RDK/Pengunjung/Putih-Merah/putih merah lk (2).png"],
+        class: "NPC"
     },
     {
         name: "PengunjungPutihMerahPr",
@@ -194,9 +227,12 @@ export const npcs: NPC[] = [{
                 dialogs: "Ya, musiknya sangat bagus!"
             }
         ],
-        position: { x: 260, y: 200 },
+        order: [[[0,1]]],
+        correctAnswer:[],
+        position: { x: 219, y: 135 },
         frames: ["PengunjungPutihMerahPr1", "PengunjungPutihMerahPr2"],
         src: [base + "Karakter RDK/Pengunjung/Putih-Merah/putih merah pr (1).png", base + "Karakter RDK/Pengunjung/Putih-Merah/putih merah pr (2).png"],
+        class: "NPC"
     }
 ]
 

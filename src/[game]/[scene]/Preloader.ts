@@ -77,6 +77,35 @@ export class Preloader extends Scene
         this.load.image("Makanan-RDK", "src/assets/game/Item/Makanan RDK.png");
         this.load.image("Uang", "src/assets/game/Item/Uang.png");
 
+
+        // Masjid
+        this.load.image("Masjid", "src/assets/game/ganjar-isi-ceramah-di-maskam-UGM.jpg");
+
+        // Player 
+        this.load.image("lkbelakang1","src/assets/game/Karakter Cowo Cewe/idle lk/belakang/MC-43.png")
+        this.load.image("lkbelakang2","src/assets/game/Karakter Cowo Cewe/idle lk/belakang/MC-44.png")
+
+        this.load.image("lkdepan1","src/assets/game/Karakter Cowo Cewe/idle lk/Depan/MC-31.png")
+        this.load.image("lkdepan2","src/assets/game/Karakter Cowo Cewe/idle lk/Depan/MC-32.png")
+
+        this.load.image("lkkanan1","src/assets/game/Karakter Cowo Cewe/idle lk/Kanan/MC-35.png")
+        this.load.image("lkkanan2","src/assets/game/Karakter Cowo Cewe/idle lk/Kanan/MC-36.png")
+
+        this.load.image("lkkiri1","src/assets/game/Karakter Cowo Cewe/idle lk/Kiri/MC-39.png")
+        this.load.image("lkkiri2","src/assets/game/Karakter Cowo Cewe/idle lk/Kiri/MC-40.png")
+
+        this.load.image("lkbelakang1-walk","src/assets/game/Karakter Cowo Cewe/LK Jalan/Belakang/MC-45.png")
+        this.load.image("lkbelakang2-walk","src/assets/game/Karakter Cowo Cewe/LK Jalan/Belakang/MC-46.png")
+
+        this.load.image("lkdepan1-walk","src/assets/game/Karakter Cowo Cewe/LK Jalan/Depan/MC-33.png")
+        this.load.image("lkdepan2-walk","src/assets/game/Karakter Cowo Cewe/LK Jalan/Depan/MC-34.png")
+
+        this.load.image("lkkanan1-walk","src/assets/game/Karakter Cowo Cewe/LK Jalan/Kanan/MC-37.png")
+        this.load.image("lkkanan2-walk","src/assets/game/Karakter Cowo Cewe/LK Jalan/Kanan/MC-38.png")
+
+        this.load.image("lkkiri1-walk","src/assets/game/Karakter Cowo Cewe/LK Jalan/Kiri/MC-41.png")
+        this.load.image("lkkiri2-walk","src/assets/game/Karakter Cowo Cewe/LK Jalan/Kiri/MC-42.png")
+
     }
 
     create()

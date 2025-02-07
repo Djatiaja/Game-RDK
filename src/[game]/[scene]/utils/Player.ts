@@ -18,11 +18,13 @@ export class Player  {
         this.data = gender === "Pria"?{ ...PlayerDatas[0]}:{...PlayerDatas[1]};
     
         this.lastDirection = Direction.DOWN;
-        this.object =this.scene.physics.add.sprite(this.position.x, this.position.y, 'player' );
+        this.object =this.scene.physics.add.sprite(this.data.position.x, this.data.position.y, 'player' );
 
         this.setupAnimations();
 
-        this.rectangle= this.scene.add.rectangle(this.position.x, this.position.y, 2, 2, 0x000000, 0);
+        this.rectangle= this.scene.add.rectangle(this.data.position.x, this.data.position.y, 2, 2, 0x000000, 0);
+
+        this.position = {x: this.data.position.x, y: this.data.position.y};
     
     }
 
@@ -37,18 +39,22 @@ export class Player  {
             }
             if(element === Direction.UP){
                 velocityY -= this.speed;
+                velocityX = 0;
                 this.lastDirection = Direction.UP;
             }
             if(element === Direction.DOWN){
                 velocityY += this.speed;
+                velocityX = 0;
                 this.lastDirection = Direction.DOWN;
             }
             if(element === Direction.LEFT){
                 velocityX -= this.speed;
+                velocityY = 0;
                 this.lastDirection = Direction.LEFT;
             }
             if(element === Direction.RIGHT){
                 velocityX += this.speed;
+                velocityY = 0;
                 this.lastDirection = Direction.RIGHT;
             }
         });
@@ -65,7 +71,7 @@ export class Player  {
 
         let positionX = this.object.x + velocityX;
         let positionY = this.object.y + velocityY;
-        this.scene.physics.moveTo(this.object, positionX, positionY, 16*4);
+        this.scene.physics.moveTo(this.object, positionX, positionY, 70);
         this.position = {x: positionX, y: positionY};
 
         this.isMoving = true;

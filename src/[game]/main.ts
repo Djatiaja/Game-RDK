@@ -9,11 +9,17 @@ import { Pause } from './[scene]/Pause';
 
 //  Find out more information about the Game Config at:
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
+
+
+
+
 const config: Phaser.Types.Core.GameConfig = {
     type: AUTO,
     parent: "game-containter",
     width: 1024,
     height: 708,
+    scale: {
+      },
     backgroundColor: '#028af8',
     render: {
         pixelArt: true,
@@ -28,8 +34,7 @@ const config: Phaser.Types.Core.GameConfig = {
         Textbox,
         Pause
     ],
-    scale: {
-    },
+
     physics: {
         default: 'Arcade',
         arcade: {
@@ -39,9 +44,7 @@ const config: Phaser.Types.Core.GameConfig = {
 };
 
 const StartGame = (parent: string) => {
-
     return new Game({ ...config, parent });
-
 }
 
 export default StartGame;
