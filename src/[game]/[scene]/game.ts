@@ -59,11 +59,12 @@ export class GameScene extends Scene
         });
 
         this.scene.launch("ControllerScene", {control: this.control});
-        
 
 
+        this.scale.startFullscreen();
 
-        EventBus.emit('current-scene-ready', this);
+          EventBus.emit('current-scene-ready', this);
+
     }
 
     loadMap(){

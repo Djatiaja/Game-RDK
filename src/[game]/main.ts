@@ -23,6 +23,8 @@ const config: Phaser.Types.Core.GameConfig = {
     width: 1024,
     height: 708,
     scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
       },
       plugins: {
         global: [
@@ -52,7 +54,8 @@ const config: Phaser.Types.Core.GameConfig = {
         arcade: {
             debug: false
         }
-    }
+    },
+
 };
 
 const StartGame = (parent: string) => {

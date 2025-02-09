@@ -41,8 +41,10 @@ export class ControllerScene extends Scene
         })
 
 
-        const actionButton = this.add.circle(800, 550, 30, 0x888888).setInteractive();
 
+        const actionButton = this.add.circle(800, 550, 30, 0x888888).setInteractive();
+        actionButton.setInteractive(new Phaser.Geom.Circle(0, 0, 30), Phaser.Geom.Circle.Contains);
+        
         actionButton.on('pointerdown', () => {
             this.control.actionButtonPressed();
             actionButton.setFillStyle(0x555555); // Change color to a darker grey on click

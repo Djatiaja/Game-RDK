@@ -93,11 +93,15 @@ export class Menu extends Scene
         playButton.setScale(0.5);
         playButton.setInteractive();
         playButton.on('pointerdown', () => {
-            this.scene.start('GameScene', {gender:selectedValue} );
             // this.scene.start('Pause', { player: new Player(this, selectedValue), text: [] });
             // this.scene.start('Textbox', { player: new Player(this, selectedValue), text: [], order: [], callback: null, correctAnswer: [] });
             // this.scene.start('Ending');
         });
+
+        playButton.on('pointerup',() => { 
+            this.scene.start('GameScene', { gender: selectedValue });
+          })
+          
         playButton.on('pointerover', () => playButton.setScale(0.55));
         playButton.on('pointerout', () => playButton.setScale(0.5));
         container.add(playButton);
