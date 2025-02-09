@@ -28,7 +28,7 @@ interface Dictinary<T> {
 
 interface Animation {
     key: string;
-    frames: integer[];
+    frames: string[];
     frameRate: number;
     repeat: number;
 }
@@ -114,50 +114,50 @@ export const PlayerDatas: PlayerData[] = [
         animations: [
             {
                 key: 'walk-down',
-                frames: [936, 937, 938, 939],
+                frames: ["lkdepan1-walk", "lkdepan1" ,"lkdepan2-walk","lkdepan1" ],
                 frameRate: 4,
                 repeat: -1
             },
             {
                 key: 'walk-up',
-                frames: [1014, 1015, 1016, 1017],
+                frames: ["lkbelakang1-walk", "lkbelakang1" ,"lkbelakang2-walk","lkbelakang1"],
                 frameRate: 4,
                 repeat: -1
             },
             {
                 key: 'walk-right',
-                frames: [975, 976, 977, 978],
+                frames: ["lkkanan1-walk","lkkanan1" ,"lkkanan2-walk", "lkkanan1" ],
                 frameRate: 4,
                 repeat: -1
             },
             {
                 key: 'walk-left',
-                frames: [1053, 1054, 1055, 1056],
+                frames: ["lkkiri1-walk","lkkiri1" ,"lkkiri2-walk", "lkkiri1" ],
                 frameRate: 4,
                 repeat: -1
             },
             {
                 key: 'idle-down',
-                frames: [936],
-                frameRate: 4,
+                frames: ["lkdepan1", "lkdepan2"],
+                frameRate: 2,
                 repeat: -1
             },
             {
                 key: 'idle-up',
-                frames: [1014],
-                frameRate: 4,
+                frames: ["lkbelakang1", "lkbelakang2"],
+                frameRate: 2,
                 repeat: -1
             },
             {
                 key: 'idle-right',
-                frames: [975],
-                frameRate: 4,
+                frames: ["lkkanan1", "lkkanan2"],
+                frameRate: 2,
                 repeat: -1
             },
             {
                 key: 'idle-left',
-                frames: [1053],
-                frameRate: 4,
+                frames: ["lkkiri1", "lkkiri2"],
+                frameRate: 2,
                 repeat: -1
             }
         ],
@@ -233,50 +233,50 @@ export const PlayerDatas: PlayerData[] = [
         animations: [
             {
                 key: 'walk-down',
-                frames: [956, 957, 958, 959],
-                frameRate: 4,
+                frames: ["prdepan1-walk", "prdepan2-walk"],
+                frameRate: 2,
                 repeat: -1
             },
             {
                 key: 'walk-up',
-                frames: [1034, 1035, 1036, 1037],
-                frameRate: 4,
+                frames: ["prbelakang1-walk", "prbelakang2-walk"],
+                frameRate: 2,
                 repeat: -1
             },
             {
                 key: 'walk-right',
-                frames: [995, 996, 997, 998],
-                frameRate: 4,
+                frames: ["prkanan1-walk", "prkanan2-walk"],
+                frameRate: 2,
                 repeat: -1
             },
             {
                 key: 'walk-left',
-                frames: [1073, 1074, 1075, 1076],
-                frameRate: 4,
+                frames: ["prkiri1-walk", "prkiri2-walk"],
+                frameRate: 2,
                 repeat: -1
             },
             {
                 key: 'idle-down',
-                frames: [956],
-                frameRate: 4,
+                frames: ["prdepan1", "prdepan2"],
+                frameRate: 2,
                 repeat: -1
             },
             {
                 key: 'idle-up',
-                frames: [1034],
-                frameRate: 4,
+                frames: ["prbelakang1", "prbelakang2"],
+                frameRate: 2,
                 repeat: -1
             },
             {
                 key: 'idle-right',
-                frames: [995],
-                frameRate: 4,
+                frames: ["prkanan1", "prkanan2"],
+                frameRate: 2,
                 repeat: -1
             },
             {
                 key: 'idle-left',
-                frames: [1073],
-                frameRate: 4,
+                frames: ["prkiri1", "prkiri2"],
+                frameRate: 2,
                 repeat: -1
             }
         ],

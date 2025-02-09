@@ -6,6 +6,7 @@ import { papan } from './[scene]/papan';
 import { Masjid } from './[scene]/Masjid';
 import { Textbox } from './[scene]/Textbox';
 import { Pause } from './[scene]/Pause';
+import { Ending } from './[scene]/Ending';
 
 //  Find out more information about the Game Config at:
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
@@ -32,7 +33,8 @@ const config: Phaser.Types.Core.GameConfig = {
         papan,
         Masjid,
         Textbox,
-        Pause
+        Pause,
+        Ending
     ],
 
     physics: {

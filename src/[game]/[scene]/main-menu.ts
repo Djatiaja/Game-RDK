@@ -33,11 +33,11 @@ export class Menu extends Scene
 
         let selectedValue: 'Pria' | 'Wanita'  = 'Pria';
 
-        let player = this.add.sprite(this.sys.canvas.width / 2, 200, 'player', 936).setScale(15);
+        let player = this.add.sprite(this.sys.canvas.width / 2, 200, "lkdepan1").setScale(15);
 
         const priaBox = this.add.rectangle(-150, 100, 200, 50, 0x999999).setOrigin(0.5);
         priaBox.setInteractive();
-        const priaText = this.add.text(-150, 100, 'Pria', {
+        const priaText = this.add.text(-150, 100, 'Laki - laki', {
             fontSize: '20px',
             color: '#000',
             fontFamily: 'Arial',
@@ -57,13 +57,13 @@ export class Menu extends Scene
             priaBox.setInteractive(false);
             wanitaBox.setInteractive(true);
             wanitaBox.setFillStyle(0xffffff);
-            player.setFrame(936);
+            player.setTexture("lkdepan1");
         });
         container.add([priaBox, priaText]);
 
         const wanitaBox = this.add.rectangle(150, 100, 200, 50, 0xffffff).setOrigin(0.5);
         wanitaBox.setInteractive();
-        const wanitaText = this.add.text(150, 100, 'Wanita', {
+        const wanitaText = this.add.text(150, 100, 'Perempuan', {
             fontSize: '20px',
             color: '#000',
             fontFamily: 'Arial',
@@ -82,7 +82,7 @@ export class Menu extends Scene
             wanitaBox.setInteractive(false);
             priaBox.setInteractive(true);
             priaBox.setFillStyle(0xffffff);
-            player.setFrame(956);
+            player.setTexture("prdepan1");
 
         });
 
@@ -96,6 +96,7 @@ export class Menu extends Scene
             this.scene.start('GameScene', {gender:selectedValue} );
             // this.scene.start('Pause', { player: new Player(this, selectedValue), text: [] });
             // this.scene.start('Textbox', { player: new Player(this, selectedValue), text: [], order: [], callback: null, correctAnswer: [] });
+            // this.scene.start('Ending');
         });
         playButton.on('pointerover', () => playButton.setScale(0.55));
         playButton.on('pointerout', () => playButton.setScale(0.5));

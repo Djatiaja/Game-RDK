@@ -121,7 +121,7 @@ export const npcs: NPC[] = [{
         class: "NPC"
     },
     {
-        name: "PengunjungPutihBiruLk",
+        name: "PengunjungPutihBiruLk",  
         dialogs: [
             {
                 name: "PengunjungPutihBiruLk",

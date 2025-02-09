@@ -106,6 +106,36 @@ export class Preloader extends Scene
         this.load.image("lkkiri1-walk","src/assets/game/Karakter Cowo Cewe/LK Jalan/Kiri/MC-41.png")
         this.load.image("lkkiri2-walk","src/assets/game/Karakter Cowo Cewe/LK Jalan/Kiri/MC-42.png")
 
+        // Player Perempuang
+        this.load.image("prbelakang1","src/assets/game/Karakter Cowo Cewe/PR Idle/Belakang/MC-59.png")
+        this.load.image("prbelakang2","src/assets/game/Karakter Cowo Cewe/PR Idle/Belakang/MC-60.png")
+
+        this.load.image("prdepan1","src/assets/game/Karakter Cowo Cewe/PR Idle/Depan/MC-47.png")
+        this.load.image("prdepan2","src/assets/game/Karakter Cowo Cewe/PR Idle/Depan/MC-48.png")
+
+        this.load.image("prkanan1","src/assets/game/Karakter Cowo Cewe/PR Idle/Kanan/MC-51.png")
+        this.load.image("prkanan2","src/assets/game/Karakter Cowo Cewe/PR Idle/Kanan/MC-52.png")
+
+        this.load.image("prkiri1","src/assets/game/Karakter Cowo Cewe/PR Idle/Kiri/MC-55.png")
+        this.load.image("prkiri2","src/assets/game/Karakter Cowo Cewe/PR Idle/Kiri/MC-56.png")
+
+        this.load.image("prbelakang1-walk","src/assets/game/Karakter Cowo Cewe/PR Jalan/Belakang/MC-61.png")
+        this.load.image("prbelakang2-walk","src/assets/game/Karakter Cowo Cewe/PR Jalan/Belakang/MC-62.png")
+
+        this.load.image("prdepan1-walk","src/assets/game/Karakter Cowo Cewe/PR Jalan/Depan/MC-49.png")
+        this.load.image("prdepan2-walk","src/assets/game/Karakter Cowo Cewe/PR Jalan/Depan/MC-50.png")
+
+        this.load.image("prkanan1-walk","src/assets/game/Karakter Cowo Cewe/PR Jalan/Kanan/MC-53.png")
+        this.load.image("prkanan2-walk","src/assets/game/Karakter Cowo Cewe/PR Jalan/Kanan/MC-54.png")
+
+        this.load.image("prkiri1-walk","src/assets/game/Karakter Cowo Cewe/PR Jalan/Kiri/MC-57.png")
+        this.load.image("prkiri2-walk","src/assets/game/Karakter Cowo Cewe/PR Jalan/Kiri/MC-58.png")
+
+
+        // Ending
+        this.load.image("Ending", "src/assets/game/Ending Game/Ending-11.png");
+        this.load.image("Ending-Button", "src/assets/game/Ending Game/Ending-12.png");
+
     }
 
     create()

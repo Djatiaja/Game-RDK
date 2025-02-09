@@ -133,7 +133,7 @@ export class Player  {
         this.data.animations.forEach(animation => {
             this.scene.anims.create({
                 key: animation.key,
-                frames: this.scene.anims.generateFrameNumbers('player', {frames: animation.frames}),
+                frames:[...animation.frames.map((frame: string) => ({key: frame}))],
                 frameRate: animation.frameRate,
                 repeat: animation.repeat
             });
