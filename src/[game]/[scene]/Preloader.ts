@@ -136,6 +136,7 @@ export class Preloader extends Scene
         this.load.image("Ending", "src/assets/game/Ending Game/Ending-11.png");
         this.load.image("Ending-Button", "src/assets/game/Ending Game/Ending-12.png");
 
+        this.load.plugin('rexVirtualJoystickPlugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
     }
 
     create()
