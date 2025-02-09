@@ -37,13 +37,17 @@ export class GameScene extends Scene
 
     preload()
     { 
-        this.loadAnimations();
-        this.loadMap();
+
+
     }
 
     create()
     {
+
         
+        this.loadAnimations();
+        this.loadMap();
+
         this.scene.launch('Pause', { player: this.player });
 
         EventBus.on('game-paused', () => {
@@ -54,11 +58,16 @@ export class GameScene extends Scene
             this.scene.resume();
         });
 
+        this.scene.launch("ControllerScene", {control: this.control});
         
+
+
+
         EventBus.emit('current-scene-ready', this);
     }
 
     loadMap(){
+       
         let map = this.make.tilemap({ key: 'GameRDK' });
 
         const tilesetNames = ['Maskam', 'Tangga', 'Papan', 'brikbaibrik', 'Grass', 'Rumput', 'ALA-14', 'ALA-14-14'];
@@ -72,7 +81,8 @@ export class GameScene extends Scene
         map.createFromObjects("Bounderies", {}, false);
 
         this.player = new Player(this, this.gender);
-        this.control = new Control( this);
+
+
 
         this.cameras.main.startFollow(this.player.object).setScroll(0, 0);
         this.cameras.main.setZoom(this.zoom)
@@ -84,6 +94,9 @@ export class GameScene extends Scene
         this.player.object.setCollideWorldBounds(true);
 
         this.addCollision(map)
+
+        this.control = new Control( this);
+
     }
 
     update()
@@ -211,8 +224,10 @@ export class GameScene extends Scene
 
         if (value){
             this.scene.stop('Pause');
+            this.scene.stop('ControllerScene', {control: this.control});
         }else{
             this.scene.launch('Pause');
+            this.scene.launch('ControllerScene', {control: this.control});
         }
     }
 }

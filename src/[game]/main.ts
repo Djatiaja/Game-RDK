@@ -7,6 +7,9 @@ import { Masjid } from './[scene]/Masjid';
 import { Textbox } from './[scene]/Textbox';
 import { Pause } from './[scene]/Pause';
 import { Ending } from './[scene]/Ending';
+import testing from './[scene]/testing';
+import rexVirtualJoystickPlugin from 'phaser3-rex-plugins/plugins/virtualjoystick-plugin';
+import { ControllerScene } from './[scene]/ControllerScene';
 
 //  Find out more information about the Game Config at:
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
@@ -21,6 +24,11 @@ const config: Phaser.Types.Core.GameConfig = {
     height: 708,
     scale: {
       },
+      plugins: {
+        global: [
+            { key: "rexVirtualJoystickPlugin", plugin: rexVirtualJoystickPlugin, start: true }
+        ]
+    },
     backgroundColor: '#028af8',
     render: {
         pixelArt: true,
@@ -34,7 +42,9 @@ const config: Phaser.Types.Core.GameConfig = {
         Masjid,
         Textbox,
         Pause,
-        Ending
+        Ending,
+        testing,
+        ControllerScene
     ],
 
     physics: {
