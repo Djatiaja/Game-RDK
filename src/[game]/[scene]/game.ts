@@ -65,9 +65,7 @@ export class GameScene extends Scene
 
 
         this.scale.startFullscreen();
-        if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
-            this.scale.lockOrientation("landscape");
-        }
+        this.scale.lockOrientation("landscape");
 
           EventBus.emit('current-scene-ready', this);
 
