@@ -4,7 +4,7 @@ import './App.css'
 function App() {
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw', height: '100vh' }}>
+      <div style={{ }} id='container'>
         <PhaserGame/>
       </div>
     </>
