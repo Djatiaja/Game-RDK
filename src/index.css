@@ -10,3 +10,12 @@ html, body {
     font: caption;
   }
 
+  #game-container {
+
+    width: 100%;
+  }
+
+  #container {
+
+    height: 100VH;
+  }

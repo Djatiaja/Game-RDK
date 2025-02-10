@@ -65,6 +65,8 @@ export class GameScene extends Scene
 
 
         this.scale.startFullscreen();
+
+        this.scale.lockOrientation('landscape-primary')
         this.scale.lockOrientation('landscape-primary')
           EventBus.emit('current-scene-ready', this);
 
