@@ -24,7 +24,7 @@ const config: Phaser.Types.Core.GameConfig = {
     height: 708,
     scale: {
         mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH
+        autoCenter: Phaser.Scale.CENTER_BOTH,
       },
       plugins: {
         global: [
@@ -55,6 +55,7 @@ const config: Phaser.Types.Core.GameConfig = {
             debug: false
         }
     },
+    
 
 };
 
