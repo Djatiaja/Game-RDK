@@ -52,18 +52,25 @@ export class GameScene extends Scene
 
         EventBus.on('game-paused', () => {
             this.scene.pause();
+            this.scene.stop('ControllerScene');
+
         });
 
         EventBus.on('game-resumed', () => {
             this.scene.resume();
+            this.scene.launch('ControllerScene', {control: this.control});
         });
 
         this.scene.launch("ControllerScene", {control: this.control});
-        
 
 
+        this.scale.startFullscreen();
+        if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+            this.scale.lockOrientation("landscape");
+        }
 
-        EventBus.emit('current-scene-ready', this);
+          EventBus.emit('current-scene-ready', this);
+
     }
 
     loadMap(){
@@ -224,7 +231,7 @@ export class GameScene extends Scene
 
         if (value){
             this.scene.stop('Pause');
-            this.scene.stop('ControllerScene', {control: this.control});
+            this.scene.stop('ControllerScene');
         }else{
             this.scene.launch('Pause');
             this.scene.launch('ControllerScene', {control: this.control});
