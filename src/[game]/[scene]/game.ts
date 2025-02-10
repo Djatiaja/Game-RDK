@@ -63,17 +63,8 @@ export class GameScene extends Scene
 
         this.scene.launch("ControllerScene", {control: this.control});
 
-// Check if screen orientation API is available
-    if (screen.orientation) {
-        (screen.orientation as any).lock("landscape").then(() => {
-            this.scale.startFullscreen(); // Enter fullscreen after locking orientation
-        }).catch((err: any) => {
-            console.warn("Orientation lock failed:", err);
-            this.scale.startFullscreen(); // Fallback to fullscreen if lock fails
-        });
-    } else {
-        this.scale.startFullscreen(); // Fallback if API is unsupported
-}
+        this.scale.startFullscreen();
+        this.scale.lockOrientation('landscape');
           EventBus.emit('current-scene-ready', this);
 
     }
