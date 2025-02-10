@@ -4,7 +4,7 @@ import { npcsAnims } from "./utils/anims";
 
 export class Preloader extends Scene {
     preload() {
-        const baseUrl = "public/assets/game/";
+        const baseUrl = "/assets/game/";
 
         this.load.image('tiles', `${baseUrl}spritesheet.png`);
         this.load.image('play-button', `${baseUrl}Play Button.png`);

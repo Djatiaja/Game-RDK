@@ -23,7 +23,7 @@ export interface DIALOG {
     name: string;
     dialogs: string;
 }
-const base = "public/assets/game/";
+const base = "assets/game/";
 
 export const npcs: NPC[] = [{
     name: "panitia",
