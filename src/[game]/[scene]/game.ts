@@ -62,13 +62,17 @@ export class GameScene extends Scene
         });
 
         this.scene.launch("ControllerScene", {control: this.control});
+        this.scale.on('enterfullscreen', () => {
+            this.scale.scaleMode = Phaser.Scale.ScaleModes.FIT;
+            this.cameras.main.setZoom(this.zoom * 2);
+        });
 
-        // this.scale.startFullscreen();
-        if (screen.orientation) {
-            screen.orientation.lock('landscape').catch(function(error) {
-                console.error('Orientation lock failed: ', error);
-            });
-        }
+        this.scale.on('leavefullscreen', () => {
+            this.scale.scaleMode = Phaser.Scale.ScaleModes.NONE;
+            this.cameras.main.setZoom(this.zoom);
+        });
+
+        this.scale.refresh();
 
           EventBus.emit('current-scene-ready', this);
 
