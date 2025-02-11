@@ -65,11 +65,11 @@ export class GameScene extends Scene
 
         // this.scale.startFullscreen();
         if (screen.orientation) {
-            screen.orientation.lock('landscape-primary').catch(function(error) {
+            screen.orientation.lock('landscape').catch(function(error) {
                 console.error('Orientation lock failed: ', error);
             });
         }
-        
+
           EventBus.emit('current-scene-ready', this);
 
     }
