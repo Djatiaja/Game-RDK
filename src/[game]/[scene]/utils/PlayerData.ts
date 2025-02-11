@@ -40,7 +40,7 @@ export interface PlayerData{
     animations: Animation[];
     position: {x: number, y: number};
     NpcInteraction:number;
-    
+    profile: string;
 }
 
 export const PlayerDatas: PlayerData[] = [
@@ -162,7 +162,8 @@ export const PlayerDatas: PlayerData[] = [
             }
         ],
         position: { x: 256, y: 445.33 },
-        NpcInteraction: 0
+        NpcInteraction: 0,
+        profile: "lkdepan1"
     },
     {
         name: "Player",
@@ -281,6 +282,7 @@ export const PlayerDatas: PlayerData[] = [
             }
         ],
         position: {x: 256, y: 445.33 },
-        NpcInteraction: 0
+        NpcInteraction: 0,
+        profile: "prdepan1"
     },
 ]

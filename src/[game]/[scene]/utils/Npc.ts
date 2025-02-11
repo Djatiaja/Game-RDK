@@ -38,9 +38,6 @@ export class Npc {
             if(this.player.data.NpcInteraction === NpcQuantity){
                 this.player.data.Achievements.achievement1.isAchieved = true;
             }
-
-            console.log(this.player.data.NpcInteraction);
-            console.log(NpcQuantity);
         }
 
         this.scene.scene.launch("Textbox", { player: this.player, text: [...this.data.dialogs], order:  JSON.parse(JSON.stringify(this.data.order)), callback: null, correctAnswer: [...this.data.correctAnswer] });

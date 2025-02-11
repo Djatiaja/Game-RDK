@@ -168,7 +168,10 @@ export class Preloader extends Scene {
         this.load.image("CHAT BOX", 'assets/game/V2/CHAT BOX.png');
         this.load.image("dekorasi lampu", 'assets/game/V2/dekorasi lampu.png');
 
-
+        // Textbox V2
+        this.load.image("Textbox", 'assets/game/Chatbox/CHATBOX/CHATBOX.png');
+        this.load.image("Choice", 'assets/game/Chatbox/CHATBOX/Choice.png');
+        
     }
 
     create() {

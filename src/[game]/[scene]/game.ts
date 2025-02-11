@@ -115,10 +115,8 @@ export class GameScene extends Scene
         this.setupCameras()
 
         this.addNpcs();
-
-        this.player.object.setCollideWorldBounds(true);
-
         this.addCollision(map)
+        this.player.object.setCollideWorldBounds(true)
 
         this.control = new Control( this);
 

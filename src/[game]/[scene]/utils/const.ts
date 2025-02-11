@@ -19,6 +19,7 @@ export interface NPC {
     class: string;
     isInteracted?: boolean;
 } 
+
 export interface DIALOG {
     name: string;
     dialogs: string;

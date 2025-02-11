@@ -13,6 +13,7 @@ export class Ending extends Scene
 
     create()
     {
-        this.add.image(0, 0, 'Ending').setOrigin(0, 0).setDisplaySize(this.scale.width, this.scale.height);   
+        const ending = this.add.image(0, 0, 'Ending').setOrigin(0.5, 0.5).setScale(0.6);   
+        ending.setPosition(this.sys.canvas.width / 2, this.sys.canvas.height / 2);
     }
 }

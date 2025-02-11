@@ -9,7 +9,7 @@ export class papan extends Scene
 
     create(){
         const papan = this.add.image(0, 0, 'papan').setScale(0.62);
-        const close = this.add.image(0,0, 'close-button').setScale(0.7);
+    const close = this.add.image(0,0, 'close-button').setScale(0.7);
 
         papan.setPosition(this.sys.canvas.width / 2, this.sys.canvas.height / 2);
         close.setPosition(this.sys.canvas.width / 2 +460, 50);

@@ -16,7 +16,7 @@ export class Player  {
         this.scene = scene;
         this.speed = 11;
         this.data = gender === "Pria"?{ ...PlayerDatas[0]}:{...PlayerDatas[1]};
-    
+
         this.lastDirection = Direction.DOWN;
         this.object =this.scene.physics.add.sprite(this.data.position.x, this.data.position.y, 'player' );
 
