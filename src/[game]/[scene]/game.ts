@@ -63,9 +63,13 @@ export class GameScene extends Scene
 
         this.scene.launch("ControllerScene", {control: this.control});
 
-        this.scale.startFullscreen();
-        this.scale.lockOrientation('landscape-primary');
-        this.scale.updateOrientation();
+        // this.scale.startFullscreen();
+        if (screen.orientation) {
+            screen.orientation.lock('landscape-primary').catch(function(error) {
+                console.error('Orientation lock failed: ', error);
+            });
+        }
+        
           EventBus.emit('current-scene-ready', this);
 
     }

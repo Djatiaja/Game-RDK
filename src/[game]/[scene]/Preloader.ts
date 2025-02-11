@@ -129,7 +129,7 @@ export class Preloader extends Scene {
         this.load.image("Ending", 'assets/game/Ending Game/Ending-11.png');
         this.load.image("Ending-Button", 'assets/game/Ending Game/Ending-12.png');
 
-        this.load.plugin('rexVirtualJoystickPlugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
+        // this.load.plugin('rexVirtualJoystickPlugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
 
 
         // Maps V2
@@ -167,7 +167,6 @@ export class Preloader extends Scene {
         this.load.image("bunga love (4)", 'assets/game/V2/bunga love (4).png');
         this.load.image("CHAT BOX", 'assets/game/V2/CHAT BOX.png');
         this.load.image("dekorasi lampu", 'assets/game/V2/dekorasi lampu.png');
-
 
 
     }
