@@ -99,7 +99,7 @@ export class Menu extends Scene
         });
 
         playButton.on('pointerup',() => { 
-            this.scene.start('GameScene', { gender: selectedValue });
+            this.scene.start('testing', { gender: selectedValue });
           })
           
         playButton.on('pointerover', () => playButton.setScale(0.55));

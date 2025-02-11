@@ -9,49 +9,37 @@ export default class testing extends Phaser.Scene {
         super({ key: "testing" });
     }
 
-    preload() {
-        // Load asset karakter (ganti dengan asset yang sesuai)
-        this.load.plugin('rexVirtualJoystickPlugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
-    }
+   
 
     create() {
-        // Tambahkan player ke scene
-        this.player = this.physics.add.sprite(400, 300, "player");
-        this.player.setCollideWorldBounds(true);
+        // Add a button to trigger orientation lock
+        const lockButton = this.add.text(100, 100, "Lock Orientation", { fontSize: "24px", color: "#fff" })
+            .setInteractive()
+            .on("pointerdown", () => this.lockOrientation());
 
-        this.joystick = this.plugins.get('rexVirtualJoystickPlugin')!.add(this, {
-            x: 100, // Posisi X Joystick
-            y: 400, // Posisi Y Joystick
-            radius: 50, // Radius lingkaran joystick
-            base: this.add.circle(0, 0, 50, 0x888888), // Warna base
-            thumb: this.add.circle(0, 0, 25, 0x00000), // Warna thumb
-        });
-
-        // Debug: Tampilkan posisi joystick di console
-        this.joystick.on('update', () => {
-            console.log("Angle:", this.joystick.angle, "Force:", this.joystick.force);
+        // Optionally, listen for fullscreen changes
+        this.scale.on("fullscreenchange", () => {
+            console.log("Fullscreen changed!");
         });
     }
 
-    update() {
-        if (!this.joystick) return;
+    async lockOrientation() {
+        try {
+            if (!("orientation" in screen && "lock" in screen.orientation)) {
+                console.error("Screen orientation API is not supported.");
+                return;
+            }
 
-        let cursorKeys = this.joystick.createCursorKeys();
+            // Request fullscreen first (required by most browsers)
+            if (!document.fullscreenElement) {
+                await this.scale.startFullscreen();
+            }
 
-        if (cursorKeys.left.isDown) {
-            this.player.setVelocityX(-200);
-        } else if (cursorKeys.right.isDown) {
-            this.player.setVelocityX(200);
-        } else {
-            this.player.setVelocityX(0);
-        }
-
-        if (cursorKeys.up.isDown) {
-            this.player.setVelocityY(-200);
-        } else if (cursorKeys.down.isDown) {
-            this.player.setVelocityY(200);
-        } else {
-            this.player.setVelocityY(0);
+            // Lock the orientation to landscape
+            await screen.orientation.lock("landscape");
+            console.log("Orientation locked to landscape.");
+        } catch (error) {
+            console.error("Failed to lock orientation:", error);
         }
     }
 }
