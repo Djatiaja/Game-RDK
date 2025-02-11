@@ -52,7 +52,7 @@ const config: Phaser.Types.Core.GameConfig = {
     physics: {
         default: 'Arcade',
         arcade: {
-            debug: false
+            debug: true
         }
     },
     

@@ -72,17 +72,30 @@ export class GameScene extends Scene
 
     loadMap(){
        
-        let map = this.make.tilemap({ key: 'GameRDK' });
-
+        console.log(this.make.tilemap({ key: 'GameRDKVTWO' }));
+        let map = this.make.tilemap({ key: 'GameRDKVTWO' });
         const tilesetNames = ['Maskam', 'Tangga', 'Papan', 'brikbaibrik', 'Grass', 'Rumput', 'ALA-14', 'ALA-14-14'];
-        tilesetNames.forEach(name => {
+        const tilesetNames2 = ["Basic_Grass_Biom_things", "Basic_Plants", "Wood_Bridge", "TEMPAT KUPON pria", "arumput", "brikbaibrik-08", "bunga love ", "Hills", "Kocheng-28", "kursi (3)", "Maskam Fixed-07-07", "Papan Fixed-11", "pohon", "rumput", "rumput (1)", "rumput (2)", "rumput (3)", "rumput (4)", "rumput (5)", "rumput (6)", "Rumput aw aw-13", "Tangga Fixed-09", "TEMPAT KUPON cewe"];
+        const tilesetNames3 =["Maskam Fixed-07-07", "Tangga Fixed-09", "Papan Fixed-11", "brikbaibrik-08", "Basic_Grass_Biom_things", "Rumput aw aw-13", "Basic_Plants", "Kocheng-28", "kursi (3)", "TEMPAT KUPON cewe", "TEMPAT KUPON pria", "pohon", "bunga love ", "rumput (2)", "rumput (1)", "rumput (3)", "rumput (4)", "rumput (6)", "rumput (5)", "arumput", "Tilled_Dirt_v2", "Grass", "Hills", "Water", "rumput", "Wood_Bridge"];
+        tilesetNames3.forEach(name => {
             map.addTilesetImage(name, name);
         });
-        
-        map.createLayer("Tile Layer 1", tilesetNames)
-        map.createLayer("Tile Layer 2", tilesetNames)
-        map.createLayer("Tile Layer 3", tilesetNames)
-        map.createFromObjects("Bounderies", {}, false);
+        map.createLayer("Tile Layer 12", tilesetNames3)
+        map.createLayer("Tile Layer 1", tilesetNames3)
+        map.createLayer("Tile Layer 2", tilesetNames3)
+        map.createLayer("Tile Layer 3", tilesetNames3)
+        map.createLayer("pohon belakang", tilesetNames3)
+        map.createLayer("pohon", tilesetNames3)
+        map.createLayer("coba", tilesetNames3)
+        map.createLayer("rumput", tilesetNames3)
+        map.createLayer("Tile Layer 8", tilesetNames3)
+        map.createLayer("Tile Layer 9", tilesetNames3)
+        map.createLayer("Tile Layer 13", tilesetNames3)
+        map.createLayer("jembatan", tilesetNames3)
+        map.createLayer("kolam", tilesetNames3)
+
+
+
 
         this.player = new Player(this, this.gender);
 
@@ -188,16 +201,20 @@ export class GameScene extends Scene
                 const object: Phaser.Geom.Rectangle = this.objects[key];
                 const objectRect = new Phaser.Geom.Rectangle(object.x, object.y, object.width, object.height);
                 if (Phaser.Geom.Intersects.RectangleToRectangle(playerRect, objectRect)){
-                    this.setInInteraction(true)
-                    this.control.setInInteraction(true);
 
                     if (key === "Papan pengumuman"){
+                        this.setInInteraction(true)
+                        this.control.setInInteraction(true);
+    
                         this.scene.launch('papan');
                         this.scene.get('papan').events.once('shutdown', () => {
                             this.setInInteraction(false);
                             this.control.setInInteraction(false);
                         });
                     }else if (key === "PM-Masjid"){
+                        this.setInInteraction(true)
+                        this.control.setInInteraction(true);
+    
                         this.scene.launch('Masjid', {player: this.player});
                         this.scene.get('Masjid').events.once('shutdown', () => {
                             this.setInInteraction(false);

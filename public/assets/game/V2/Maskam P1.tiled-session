@@ -1,0 +1,116 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "GAME RDK.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "ALA-14-14.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "ALA-14.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "GAME RDK..tmx": {
+            "scale": 1.5474609375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 256.22617695317433,
+                "y": 223.9151836425596
+            }
+        },
+        "GAME RDK.tmx": {
+            "scale": 1,
+            "selectedLayer": -1,
+            "viewCenter": {
+                "x": 391.5,
+                "y": 276.5
+            }
+        },
+        "Grass.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Kocheng-28.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Maskam Fixed-07-07.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Papan Fixed-11.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Rumput aw aw-13.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tangga Fixed-09.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "brikbaibrik-08.tsx": {
+            "scaleInDock": 0.75,
+            "scaleInEditor": 1
+        },
+        "brikbaibrik-12.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "orange_3.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "seal_point_0.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/Hp/OneDrive/Pictures/Design Stuff/Tiled",
+    "last.imagePath": "C:/Users/Hp/OneDrive/Pictures/Design Stuff/Tiled",
+    "map.height": 28,
+    "map.lastUsedExportFilter": "All Files (*)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 32,
+    "openFiles": [
+        "GAME RDK.tmx",
+        "Maskam Fixed-07-07.tsx",
+        "Tangga Fixed-09.tsx",
+        "Papan Fixed-11.tsx",
+        "brikbaibrik-08.tsx",
+        "Rumput aw aw-13.tsx"
+    ],
+    "project": "Maskam P1.tiled-project",
+    "recentFiles": [
+        "Kocheng-28.tsx",
+        "orange_3.tsx",
+        "seal_point_0.tsx",
+        "Rumput aw aw-13.tsx",
+        "brikbaibrik-08.tsx",
+        "Papan Fixed-11.tsx",
+        "Tangga Fixed-09.tsx",
+        "Maskam Fixed-07-07.tsx",
+        "GAME RDK.tmx",
+        "brikbaibrik-12.tsx",
+        "GAME RDK..tmx",
+        "Grass.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

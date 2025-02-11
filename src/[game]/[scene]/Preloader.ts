@@ -31,7 +31,7 @@ export class Preloader extends Scene {
             frameWidth: 16,
             frameHeight: 16
         });
-        this.load.spritesheet("Grass", 'assets/game/Rumput aw aw-13.png', {
+        this.load.spritesheet("Grass1", 'assets/game/Rumput aw aw-13.png', {
             frameWidth: 16,
             frameHeight: 16
         });
@@ -130,6 +130,46 @@ export class Preloader extends Scene {
         this.load.image("Ending-Button", 'assets/game/Ending Game/Ending-12.png');
 
         this.load.plugin('rexVirtualJoystickPlugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
+
+
+        // Maps V2
+
+        this.load.tilemapTiledJSON("GameRDKVTWO", 'assets/game/V2/GAME RDK6.json');
+        this.load.image("Maskam Fixed-07-07", 'assets/game/V2/Maskam Fixed-07-07.png');
+        this.load.image("Tangga Fixed-09", 'assets/game/V2/Tangga Fixed-09.png');
+        this.load.image("Papan Fixed-11", 'assets/game/V2/Papan Fixed-11.png');
+        this.load.image("brikbaibrik-08", 'assets/game/V2/brikbaibrik-08.png');
+        this.load.image("Basic_Grass_Biom_things", 'assets/game/V2/Basic_Grass_Biom_things.png');
+        this.load.image("Rumput aw aw-13", 'assets/game/V2/Rumput aw aw-13.png');
+        this.load.image("Rumput aw aw 13", 'assets/game/V2/Rumput aw aw-13.png');
+        this.load.image("Basic_Plants", 'assets/game/V2/Basic_Plants.png');
+        this.load.image("Kocheng-28", 'assets/game/V2/Kocheng-28.png');
+        this.load.image("kursi (3)", 'assets/game/V2/kursi (3).png');
+        this.load.image("TEMPAT KUPON cewe", 'assets/game/V2/TEMPAT KUPON (1).png');
+        this.load.image("TEMPAT KUPON pria", 'assets/game/V2/TEMPAT KUPON (2).png');
+        this.load.image("pohon", 'assets/game/V2/bunga love (5).png');
+        this.load.image("bunga love ", 'assets/game/V2/bunga love (6).png');
+        this.load.image("rumput (2)", 'assets/game/V2/rumput (2).png');
+        this.load.image("rumput (1)", 'assets/game/V2/rumput (2).png');
+        this.load.image("rumput (3)", 'assets/game/V2/rumput (2).png');
+        this.load.image("rumput (4)", 'assets/game/V2/rumput (4).png');
+        this.load.image("rumput (6)", 'assets/game/V2/rumput (6).png');
+        this.load.image("rumput (5)", 'assets/game/V2/rumput (5).png');
+        this.load.image("arumput", 'assets/game/V2/Serene Village - Outside_768x768.png');
+        this.load.image("Tilled_Dirt_v2", 'assets/game/V2/Tilled_Dirt.png');
+        this.load.image("Grass", 'assets/game/V2/Grass.png');
+        this.load.image("Hills", 'assets/game/V2/Hills.png');
+        this.load.image("Water", 'assets/game/V2/Water.png');
+        this.load.image("rumput", 'assets/game/V2/rumput.png');
+        this.load.image("Wood_Bridge", 'assets/game/V2/Wood_Bridge.png');
+        this.load.image("Free Chicken Sprites", 'assets/game/V2/Free Chicken Sprites.png');
+        this.load.image("arumput", 'assets/game/V2/Serene Village - Outside_768x768.png');
+        this.load.image("bunga love (4)", 'assets/game/V2/bunga love (4).png');
+        this.load.image("CHAT BOX", 'assets/game/V2/CHAT BOX.png');
+        this.load.image("dekorasi lampu", 'assets/game/V2/dekorasi lampu.png');
+
+
+
     }
 
     create() {
