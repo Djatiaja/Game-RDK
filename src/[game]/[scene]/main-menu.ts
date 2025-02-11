@@ -99,7 +99,8 @@ export class Menu extends Scene
         });
 
         playButton.on('pointerup',() => { 
-            this.scene.start('testing', { gender: selectedValue });
+            this.lockOrientation()
+            this.scene.start('GameScene', { gender: selectedValue });
           })
           
         playButton.on('pointerover', () => playButton.setScale(0.55));
@@ -109,6 +110,26 @@ export class Menu extends Scene
 
         
         EventBus.emit('current-scene-ready', this);
+    }
+
+    async lockOrientation() {
+        try {
+            if (!("orientation" in screen && "lock" in screen.orientation)) {
+                console.error("Screen orientation API is not supported.");
+                return;
+            }
+
+            // Request fullscreen first (required by most browsers)
+            if (!document.fullscreenElement) {
+                await this.scale.startFullscreen();
+            }
+
+            // Lock the orientation to landscape
+            await screen.orientation.lock("landscape");
+            console.log("Orientation locked to landscape.");
+        } catch (error) {
+            console.error("Failed to lock orientation:", error);
+        }
     }
 
     
