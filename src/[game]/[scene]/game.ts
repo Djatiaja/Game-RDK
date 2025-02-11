@@ -64,7 +64,7 @@ export class GameScene extends Scene
         this.scene.launch("ControllerScene", {control: this.control});
         this.scale.on('enterfullscreen', () => {
             this.scale.scaleMode = Phaser.Scale.ScaleModes.FIT;
-            this.cameras.main.setZoom(this.zoom * 2);
+            this.cameras.main.setZoom(this.zoom);
         });
 
         this.scale.on('leavefullscreen', () => {
