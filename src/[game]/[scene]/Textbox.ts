@@ -25,7 +25,7 @@ export class Textbox extends Scene
         super('Textbox');
     }
 
-    init(data:{player: Player, text: DIALOG[], order: number[][][], callback: Function|null, correctAnswer: number[], npcProfile: string}){
+init(data:{player: Player, text: DIALOG[], order: number[][][], callback: Function|null, correctAnswer: number[], npcProfile: string}){
         this.player = data.player;
         this.text = data.text;
         this.order = data.order;
@@ -36,37 +36,38 @@ export class Textbox extends Scene
 
     create(){
 
-        this.player = new Player(this, "Pria");
-        this.text = [
-            {
-                name: "panitia",
-                dialogs: "Halo, selamat datang di acara kamisa asdasd asdasdas adas dasd asdasd asdasd asdas dasd adas dasd asdas !"
-            },
-            {
-                name: "Player",
-                dialogs: "Terima kasih, senang berada di sini."
-            },
-            {
-                name: "panitia",
-                dialogs: "Apakah kamu sudah mendaftar?"
-            },
-            {
-                name: "Player",
-                dialogs: "Belum, saya akan mendaftar sekarang."
-            },
-            {
-                name:"player",
-                dialogs: "Saya sudah mendaftar, apa yang harus saya lakukan selanjutnya?"
-            }
-        ]
-        this.order = [[[0,1], [4,0],[3,1]],[[0,1], [0,1]]];
+        // this.player = new Player(this, "Pria");
+        // this.text = [
+        //     {
+        //         name: "panitia",
+        //         dialogs: "Halo, selamat datang di acara kamisa asdasd asdasdas adas dasd asdasd asdasd asdas dasd adas dasd asdas !"
+        //     },
+        //     {
+        //         name: "Player",
+        //         dialogs: "Terima kasih, senang berada di sini."
+        //     },
+        //     {
+        //         name: "panitia",
+        //         dialogs: "Apakah kamu sudah mendaftar?"
+        //     },
+        //     {
+        //         name: "Player",
+        //         dialogs: "Belum, saya akan mendaftar sekarang."
+        //     },
+        //     {
+        //         name:"player",
+        //         dialogs: "Saya sudah mendaftar, apa yang harus saya lakukan selanjutnya?"
+        //     }
+        // ]
+        // this.order = [[[0,1], [4,0],[3,1]],[[0,1], [0,1]]];
 
-        this.callback = () => {
-            console.log("callback")
-        }
+        // this.callback = () => {
+        //     console.log("callback")
+        // }
 
-        this.npcProfile = "PengunjungIjoPr1"
-        this.correctAnswer = [1, 1]
+        // this.npcProfile = "PengunjungIjoPr1"
+        // this.correctAnswer = [1, 1]
+
         const boxWidth = 800;
         const boxHeight = 200;
         const graphics = this.add.image(0, 0, 'Textbox').setDisplaySize(boxWidth, boxHeight);
@@ -75,7 +76,7 @@ export class Textbox extends Scene
         this.currentDialog =this.text[this.currentOrder[0].shift()!] 
         this.currentText = this.currentDialog.dialogs;
         
-        const profile = this.add.image(685, 20, (this.currentDialog.name==="player")? this.player.data.profile : this.npcProfile ).setScale(5);
+const profile = this.add.image(685, 20, (this.currentDialog.name==="Player")? this.player.data.profile : this.npcProfile ).setScale(5);
 
         const text = this.add.text(20 , -80, this.currentText , {
             fontSize: `${20}px`,
@@ -162,8 +163,9 @@ export class Textbox extends Scene
         this.currentDialog = this.text[this.currentOrder[0].shift()!];
         this.currentText = this.currentDialog.dialogs;
         (this.textBoxContainer.list[1] as Phaser.GameObjects.Text).setText(this.currentText);
-        (this.textBoxContainer.list[2] as Phaser.GameObjects.Image).setTexture((this.currentDialog.name==="player")? this.player.data.profile : this.npcProfile);
+        (this.textBoxContainer.list[2] as Phaser.GameObjects.Image).setTexture((this.currentDialog.name==="Player")? this.player.data.profile : this.npcProfile);
         ((this.textBoxContainer.list[3] as Phaser.GameObjects.Container).list[0] as Phaser.GameObjects.Text).setText(this.currentDialog.name);
+        ((this.textBoxContainer.list[3] as Phaser.GameObjects.Container).list[0] as Phaser.GameObjects.Text).setPosition((this.textBoxContainer.list[3] as Phaser.GameObjects.Container).width/2 - ((this.textBoxContainer.list[3] as Phaser.GameObjects.Container).list[0] as Phaser.GameObjects.Text).width/2, 0);
 
 
         this.animateText(this.textBoxContainer.list[1] as Phaser.GameObjects.Text, 50).then(() => {
@@ -240,7 +242,7 @@ export class Textbox extends Scene
         const choiceContainer1 = this.add.container(0, 0, [choiceBox1, choiceText1]);
         choiceContainer1.setPosition(
             this.cameras.main.width / 2 - choiceBoxWidth / 2,
-            this.cameras.main.height / 2 - choiceBoxHeight1 / 2 - 50
+            this.cameras.main.height / 2 - choiceBoxHeight1 / 2 - 100
         );
 
         const choiceContainer2 = this.add.container(0, 0, [choiceBox2, choiceText2]);

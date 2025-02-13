@@ -23,7 +23,7 @@ export class Panitia extends Npc
                 this.player.data.Achievements.achievement1.isAchieved = true;
             }
         }
-        this.scene.scene.launch("Textbox", { player: this.player, text: [...this.data.dialogs], order:  JSON.parse(JSON.stringify(this.data.order)), callback: null, correctAnswer: [...this.data.correctAnswer] });
+        this.scene.scene.launch("Textbox", { player: this.player, text: [...this.data.dialogs], order:  JSON.parse(JSON.stringify(this.data.order)), callback: null, correctAnswer: [...this.data.correctAnswer], npcProfile: this.data.frames[0] });
     }
 
 }

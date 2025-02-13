@@ -10,6 +10,7 @@ import { Ending } from './[scene]/Ending';
 import testing from './[scene]/testing';
 import rexVirtualJoystickPlugin from 'phaser3-rex-plugins/plugins/virtualjoystick-plugin';
 import { ControllerScene } from './[scene]/ControllerScene';
+import { PhaserNavMeshPlugin } from "phaser-navmesh/src";
 
 //  Find out more information about the Game Config at:
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
@@ -29,12 +30,19 @@ const config: Phaser.Types.Core.GameConfig = {
       plugins: {
         global: [
             { key: "rexVirtualJoystickPlugin", plugin: rexVirtualJoystickPlugin, start: true }
+        ],
+        scene: [
+            {
+                key: "PhaserNavMeshPlugin", // Key to store the plugin class under in cache
+                plugin: PhaserNavMeshPlugin, // Class that constructs plugins
+                mapping: "navMeshPlugin", // Property mapping to use for the scene, e.g. this.navMeshPlugin
+                start: true
+              }
         ]
     },
     backgroundColor: '#028af8',
     render: {
         pixelArt: true,
-        roundPixels: true,
     },
     scene:[
         Preloader,
@@ -52,7 +60,7 @@ const config: Phaser.Types.Core.GameConfig = {
     physics: {
         default: 'Arcade',
         arcade: {
-            debug: true
+            debug: false
         }
     },
     

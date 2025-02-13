@@ -69,7 +69,6 @@ export class Masjid extends Scene
         this.add.image(0, 0, 'Masjid').setOrigin(0, 0).setDisplaySize(width, height);
         data.callback = () => {
             this.player.data.Achievements.achievement2.isAchieved = true;
-            console.log("callback")
         }
         this.scene.launch('Textbox', {player: this.player, text:{ ...data.text}, order: JSON.parse(JSON.stringify(data.order)), callback: data.callback, correctAnswer: JSON.parse(JSON.stringify(data.correctAnswer))});
         this.scene.get('Textbox').events.on('shutdown', () => {

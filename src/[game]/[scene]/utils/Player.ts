@@ -19,10 +19,11 @@ export class Player  {
 
         this.lastDirection = Direction.DOWN;
         this.object =this.scene.physics.add.sprite(this.data.position.x, this.data.position.y, 'player' );
-
+        this.object.setSize(this.object.width - 6, this.object.height + 7);
+        this.object.setOffset(1.5, 0);
         this.setupAnimations();
 
-        this.rectangle= this.scene.add.rectangle(this.data.position.x, this.data.position.y, 2, 2, 0x000000, 0);
+        this.rectangle= this.scene.add.rectangle(this.data.position.x, this.data.position.y, 10, 10, 0x000000, 0);
 
         this.position = {x: this.data.position.x, y: this.data.position.y};
     

@@ -8,18 +8,19 @@ export const images: imageLoader[] = [
 
 ]
 
-interface Achievement {
+export interface Achievement {
     name: string;
     isAchieved: boolean;
     image: string;
     position: {x: number, y: number};
 }
 
-interface Item {
+export interface Item {
     name: string;
     image: string;
     quantity: number;
     position: {x: number, y: number};
+    acquired: boolean;
 }
 
 interface Dictinary<T> {
@@ -89,25 +90,29 @@ export const PlayerDatas: PlayerData[] = [
                 name: "Kupon RDK",
                 image: "Kupon",
                 quantity: 0,
-                position: { x: 0, y: 460 }
+                position: { x: 0, y: 460 },
+                acquired: false
             },
             MakananKucing: {
                 name: "Makanan Kucing",
                 image: "Makanan-Kucing",
                 quantity: 0,
-                position: { x: 90, y: 460 }
+                position: { x: 90, y: 460 },
+                acquired: false
             },
             MakananRDK: {
                 name: "Makanan",
                 image: "Makanan-RDK",
                 quantity: 0,
-                position: { x: 180, y: 460 }
+                position: { x: 180, y: 460 },
+                acquired: false
             },
             Uang: {
                 name: "Uang",
                 image: "Uang",
                 quantity: 0,
-                position: { x: 270, y: 460 }
+                position: { x: 270, y: 460 },
+                acquired: false
             },
         }
         ,
@@ -161,7 +166,7 @@ export const PlayerDatas: PlayerData[] = [
                 repeat: -1
             }
         ],
-        position: { x: 256, y: 445.33 },
+        position: { x:256, y:432 },
         NpcInteraction: 0,
         profile: "lkdepan1"
     },
@@ -209,26 +214,30 @@ export const PlayerDatas: PlayerData[] = [
             Kupon: {
                 name: "Kupon RDK",
                 image: "Kupon",
-                quantity: 1,
-                position: { x: 0, y: 460 }
+                quantity: 0,
+                position: { x: 0, y: 460 },
+                acquired: false
             },
             MakananKucing: {
                 name: "Makanan Kucing",
                 image: "Makanan-Kucing",
-                quantity: 1,
-                position: { x: 90, y: 460 }
+                quantity: 0,
+                position: { x: 90, y: 460 },
+                acquired: false
             },
             MakananRDK: {
                 name: "Makanan",
                 image: "Makanan-RDK",
-                quantity: 1,
-                position: { x: 180, y: 460 }
+                quantity: 0,
+                position: { x: 180, y: 460 },
+                acquired: false
             },
             Uang: {
                 name: "Uang",
                 image: "Uang",
-                quantity: 1,
-                position: { x: 270, y: 460 }
+                quantity: 0,
+                position: { x: 270, y: 460 },
+                acquired: false
             },
         },
         animations: [

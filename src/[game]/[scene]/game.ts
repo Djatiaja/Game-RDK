@@ -6,6 +6,8 @@ import { npcsAnims } from "./utils/anims";
 import direction, { npcs, tilesize } from "./utils/const";
 import { Npc } from "./utils/Npc";
 import { Panitia } from "./utils/Spesial NPC/Panitia";
+import { Cat} from "./utils/Cat";
+import PhaserNavMeshPlugin, { PhaserNavMesh } from "phaser-navmesh/src";
 
 
 interface Dictinary<T> {
@@ -37,6 +39,12 @@ export class GameScene extends Scene
 
     preload()
     { 
+        this.plugins.installScenePlugin(
+            "NavMeshPlugin",
+            PhaserNavMeshPlugin,
+            "navMeshPlugin",
+            this
+        );
 
 
     }
@@ -72,6 +80,8 @@ export class GameScene extends Scene
             this.cameras.main.setZoom(this.zoom);
         });
 
+        
+
         this.scale.refresh();
 
           EventBus.emit('current-scene-ready', this);
@@ -97,10 +107,7 @@ export class GameScene extends Scene
         map.createLayer("coba", tilesetNames3)
         map.createLayer("rumput", tilesetNames3)
         map.createLayer("Tile Layer 8", tilesetNames3)
-        map.createLayer("Tile Layer 9", tilesetNames3)
         map.createLayer("Tile Layer 13", tilesetNames3)
-        map.createLayer("jembatan", tilesetNames3)
-        map.createLayer("kolam", tilesetNames3)
 
 
 
@@ -116,6 +123,8 @@ export class GameScene extends Scene
 
         this.addNpcs();
         this.addCollision(map)
+        const cat = new Cat(this, this.player, map);
+
         this.player.object.setCollideWorldBounds(true)
 
         this.control = new Control( this);
@@ -208,7 +217,7 @@ export class GameScene extends Scene
                 const objectRect = new Phaser.Geom.Rectangle(object.x, object.y, object.width, object.height);
                 if (Phaser.Geom.Intersects.RectangleToRectangle(playerRect, objectRect)){
 
-                    if (key === "Papan pengumuman"){
+                    if (key === "papan"){
                         this.setInInteraction(true)
                         this.control.setInInteraction(true);
     
@@ -227,7 +236,50 @@ export class GameScene extends Scene
                             this.control.setInInteraction(false);
                             this.player.data.Items.Kupon.quantity =1;   
                         });
+                    }else if(key=== "KuponL"){
+                        if(this.player.data.Items.Kupon.quantity !== 1){
+                            return
+                        }
+                        this.setInInteraction(true)
+                        this.control.setInInteraction(true)
+                        this.scene.launch("Textbox", { player: this.player, text: [
+                            {
+                                name: "Player",
+                                dialogs:
+                                  "Kak, aku dapet kupon ini. Bisa ditukar sama apa aja?",
+                              },
+                              {
+                                name: "Tegar",
+                                dialogs:
+                                  "Kupon ini bisa buat tukar makanan atau iftar. Tapi inget ya, sehari cuma dapet satu kupon!",
+                              },
+                              { 
+                                name: "Player", 
+                                dialogs: "Oh gitu… Kalau aku mau dapet hadiah tambahan, bisa nggak?"
+                            },
+                              {
+                                name: "Tegar",
+                                dialogs:
+                                  "Bisa dong! Caranya, ikut Kajian Buka Bersama. Biasanya setelah kajian, kita bagiin kupon tambahan buat yang aktif. Jadi selain dapet ilmu, dapet bonus juga!",
+                              },
+                              {
+                                name: "Player",
+                                dialogs:
+                                  "Wah, jadi makin semangat ikut kajian nih!",
+                              },
+                              {
+                                name: "Tegar",
+                                dialogs: "Nah, itu baru semangat RDK!"
+                              }
+                        ], order:  [[[0,1,2,3,4,5]]], callback: ()=>{
+                            this.setInInteraction(false)
+                            this.control.setInInteraction(false)
+                            this.player.data.Items.MakananRDK.acquired = true
+                            this.player.data.Items.MakananRDK.quantity = 1
+                        }, correctAnswer: [], npcProfile: "Kupon", }, );
                     }
+
+
                 }
             });
 

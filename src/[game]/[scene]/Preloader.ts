@@ -1,6 +1,8 @@
 import { Scene } from "phaser";
 import { npcs } from "./utils/const";
 import { npcsAnims } from "./utils/anims";
+import phaserNavmesh from "phaser-navmesh";
+
 
 export class Preloader extends Scene {
     preload() {
@@ -73,7 +75,8 @@ export class Preloader extends Scene {
         this.load.image("Uang", 'assets/game/Item/Uang.png');
 
         // Masjid
-        this.load.image("Masjid", 'assets/game/ganjar-isi-ceramah-di-maskam-UGM.jpg');
+        this.load.image("Masjid", 'assets/game/Chatbox/Cutscene RDK-01.png');
+        // this.load.image  
 
         // Player 
         this.load.image("lkbelakang1", 'assets/game/Karakter Cowo Cewe/idle lk/belakang/MC-43.png');
@@ -133,8 +136,7 @@ export class Preloader extends Scene {
 
 
         // Maps V2
-
-        this.load.tilemapTiledJSON("GameRDKVTWO", 'assets/game/V2/GAME RDK6.json');
+        this.load.tilemapTiledJSON("GameRDKVTWO", 'assets/game/V2/GAME RDK8.json');
         this.load.image("Maskam Fixed-07-07", 'assets/game/V2/Maskam Fixed-07-07.png');
         this.load.image("Tangga Fixed-09", 'assets/game/V2/Tangga Fixed-09.png');
         this.load.image("Papan Fixed-11", 'assets/game/V2/Papan Fixed-11.png');
@@ -171,6 +173,9 @@ export class Preloader extends Scene {
         // Textbox V2
         this.load.image("Textbox", 'assets/game/Chatbox/CHATBOX/CHATBOX.png');
         this.load.image("Choice", 'assets/game/Chatbox/CHATBOX/Choice.png');
+
+        // Cat
+        this.load.spritesheet("BlackCat", 'assets/game/Cats/black_2.png', {frameWidth: 32, frameHeight: 32});
         
     }
 

@@ -101,8 +101,8 @@ export class Menu extends Scene
         playButton.on('pointerup',() => { 
             this.lockOrientation()
             // this.scene.start('Textbox', { player: new Player(this, selectedValue), text: [], order: [], callback: null, correctAnswer: [], npcProfile: 'npcProfile' });
-            this.scene.start( 'Ending', { player: new Player(this, selectedValue) });
-            // this.scene.start('GameScene', { gender: selectedValue });
+            // this.scene.start( 'Ending', { player: new Player(this, selectedValue) });
+            this.scene.start('GameScene', { gender: selectedValue });
           })
           
         playButton.on('pointerover', () => playButton.setScale(0.55));
