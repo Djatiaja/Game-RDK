@@ -176,7 +176,20 @@ export class Preloader extends Scene {
 
         // Cat
         this.load.spritesheet("BlackCat", 'assets/game/Cats/black_2.png', {frameWidth: 32, frameHeight: 32});
-        
+
+        // Icon
+        this.load.spritesheet("Chat", "assets/game/V2/Chat.png", {frameWidth:16, frameHeight:16})
+        this.load.spritesheet("TandaSeru", "assets/game/V2/TandaSeru.png", {frameWidth:16, frameHeight:16})
+
+        // 
+        this.load.image("MenuBackground", 'assets/game/Menu/Bitmask references gif (2).png');
+        this.load.image("PlayButton", 'assets/game/Menu/New Piskel (4).png');
+
+        this.load.image("Btn-laki-Off", 'assets/game/Menu/lk1.png');
+        this.load.image("Btn-laki-On", 'assets/game/Menu/lk2.png');
+
+        this.load.image("Btn-perempuan-Off", 'assets/game/Menu/pr1.png');
+        this.load.image("Btn-perempuan-On", 'assets/game/Menu/pr2.png');
     }
 
     create() {

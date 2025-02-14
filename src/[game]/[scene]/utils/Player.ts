@@ -10,12 +10,15 @@ export class Player  {
     isMoving: boolean = false;
     rectangle: Phaser.GameObjects.Rectangle;
     data : PlayerData
+    gender: string; 
 
     constructor(scene: Phaser.Scene, gender: string){
         this.position = {x: 3 * tilesize, y: 3 *tilesize};
         this.scene = scene;
         this.speed = 11;
         this.data = gender === "Pria"?{ ...PlayerDatas[0]}:{...PlayerDatas[1]};
+
+        this.gender = gender
 
         this.lastDirection = Direction.DOWN;
         this.object =this.scene.physics.add.sprite(this.data.position.x, this.data.position.y, 'player' );

@@ -186,7 +186,21 @@ export class GameScene extends Scene
     }
 
     loadAnimations(){
-        
+        this.anims.create({
+            key: 'Chat',
+            frames: this.anims.generateFrameNames('Chat', { start: 0, end: 3 }),
+            frameRate: 2,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: "TandaSeru",
+            frames: this.anims.generateFrameNames("TandaSeru", { start: 0, end: 4 }),
+            frameRate: 2,
+            repeat: -1
+        });
+
+        // Play the animations on the scene
         for(let key in npcsAnims){
             for(let anim in npcsAnims[key]){
                 const animConfig: any = npcsAnims[key][anim];
@@ -240,6 +254,11 @@ export class GameScene extends Scene
                         if(this.player.data.Items.Kupon.quantity !== 1){
                             return
                         }
+
+                        if(this.gender !== "Pria"){
+                            return
+                        }
+
                         this.setInInteraction(true)
                         this.control.setInInteraction(true)
                         this.scene.launch("Textbox", { player: this.player, text: [
@@ -277,6 +296,55 @@ export class GameScene extends Scene
                             this.player.data.Items.MakananRDK.acquired = true
                             this.player.data.Items.MakananRDK.quantity = 1
                         }, correctAnswer: [], npcProfile: "Kupon", }, );
+                    }else if(key === "KuponP"){
+                        if(this.player.data.Items.Kupon.quantity !== 1){
+                            return
+                        }
+                        if (this.gender !== "Wanita") {
+                            return;
+                        }
+
+                        this.setInInteraction(true);
+                        this.control.setInInteraction(true);
+                        this.scene.launch("Textbox", {
+                            player: this.player,
+                            text: [
+                                {
+                                    name: "Player",
+                                    dialogs: "Kak, aku dapet kupon ini. Bisa ditukar sama apa aja?",
+                                },
+                                {
+                                    name: "Aisyah",
+                                    dialogs: "Kupon ini bisa buat tukar makanan atau iftar. Tapi inget ya, sehari cuma dapet satu kupon!",
+                                },
+                                {
+                                    name: "Player",
+                                    dialogs: "Oh gitu… Kalau aku mau dapet hadiah tambahan, bisa nggak?",
+                                },
+                                {
+                                    name: "Aisyah",
+                                    dialogs: "Bisa dong! Caranya, ikut Kajian Buka Bersama. Biasanya setelah kajian, kita bagiin kupon tambahan buat yang aktif. Jadi selain dapet ilmu, dapet bonus juga!",
+                                },
+                                {
+                                    name: "Player",
+                                    dialogs: "Wah, jadi makin semangat ikut kajian nih!",
+                                },
+                                {
+                                    name: "Aisyah",
+                                    dialogs: "Nah, itu baru semangat RDK!",
+                                }
+                            ],
+                            order: [[[0, 1, 2, 3, 4, 5]]],
+                            callback: () => {
+                                this.setInInteraction(false);
+                                this.control.setInInteraction(false);
+                                this.player.data.Items.MakananRDK.acquired = true;
+                                this.player.data.Items.MakananRDK.quantity = 1;
+                            },
+                            correctAnswer: [],
+                            npcProfile: "panitiaidle1Pr",
+                        });
+
                     }
 
 

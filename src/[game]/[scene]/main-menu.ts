@@ -18,79 +18,53 @@ export class Menu extends Scene
 
     create()
     {
-        const background = this.add.image(0, 0, 'background').setOrigin(0, 0);
+        const background = this.add.image(0, 0, 'MenuBackground').setOrigin(0, 0);
         background.displayWidth = this.sys.canvas.width;
         background.displayHeight = this.sys.canvas.height;
 
         // UI Container
         const container = this.add.container(this.sys.canvas.width / 2, this.sys.canvas.height / 2);
-        // Blue box with rounded corners
-        const box = this.add.rectangle(0, 0, 1000, 680, 0x3acef0).setOrigin(0.5);
-        const boxBorder = this.add.rectangle(0, 0, 1000, 680)
-            .setStrokeStyle(4, 0xffffff)
-            .setOrigin(0.5);
-        container.add([box, boxBorder]);
+``
 
         let selectedValue: 'Pria' | 'Wanita'  = 'Pria';
 
-        let player = this.add.sprite(this.sys.canvas.width / 2, 200, "lkdepan1").setScale(15);
+        let player = this.add.sprite(this.sys.canvas.width / 2, 250, "lkdepan1").setScale(10);
 
-        const priaBox = this.add.rectangle(-150, 100, 200, 50, 0x999999).setOrigin(0.5);
+        const priaBox = this.add.image(-150, 100, "Btn-laki-On").setOrigin(0.5);
+        priaBox.setDisplaySize(100, 150)
         priaBox.setInteractive();
-        const priaText = this.add.text(-150, 100, 'Laki - laki', {
-            fontSize: '20px',
-            color: '#000',
-            fontFamily: 'Arial',
-        }).setOrigin(0.5);
 
-
-        priaBox.on('pointerover', () =>{
-            if (selectedValue === 'Pria') { return};
-            priaBox.setFillStyle(0xcccccc)});
-        priaBox.on('pointerout', () =>{
-            if (selectedValue === 'Pria') return;
-            priaBox.setFillStyle(0xffffff)});
         priaBox.on('pointerdown', () => {
             if (selectedValue === 'Pria') return;
             selectedValue = 'Pria';
-            priaBox.setFillStyle(0x999999);
+            priaBox.setTexture("Btn-laki-On");
             priaBox.setInteractive(false);
             wanitaBox.setInteractive(true);
-            wanitaBox.setFillStyle(0xffffff);
+            wanitaBox.setTexture("Btn-perempuan-Off");
             player.setTexture("lkdepan1");
         });
-        container.add([priaBox, priaText]);
+        container.add([priaBox]);
 
-        const wanitaBox = this.add.rectangle(150, 100, 200, 50, 0xffffff).setOrigin(0.5);
+        const wanitaBox = this.add.image(150, 100,"Btn-perempuan-Off").setOrigin(0.5);
+        wanitaBox.setDisplaySize(100, 150)
         wanitaBox.setInteractive();
-        const wanitaText = this.add.text(150, 100, 'Perempuan', {
-            fontSize: '20px',
-            color: '#000',
-            fontFamily: 'Arial',
-        }).setOrigin(0.5);
 
-        wanitaBox.on('pointerover', () =>{
-            if (selectedValue === 'Wanita') return;
-            wanitaBox.setFillStyle(0xcccccc)});
-        wanitaBox.on('pointerout', () => {
-            if (selectedValue === 'Wanita') return;
-            wanitaBox.setFillStyle(0xffffff)});
         wanitaBox.on('pointerdown', () => {
             if (selectedValue === 'Wanita') return;
             selectedValue = 'Wanita';
-            wanitaBox.setFillStyle(0x999999);
+            wanitaBox.setTexture("Btn-perempuan-On");
             wanitaBox.setInteractive(false);
             priaBox.setInteractive(true);
-            priaBox.setFillStyle(0xffffff);
+            priaBox.setTexture("Btn-laki-Off");
             player.setTexture("prdepan1");
 
         });
 
-        container.add([wanitaBox, wanitaText]);        
+        container.add([wanitaBox]);        
 
         // Play Button
-        const playButton = this.add.image(0, 250, 'play-button').setOrigin(0.5);
-        playButton.setScale(0.5);
+        const playButton = this.add.image(0, 190, 'PlayButton').setOrigin(0.5);
+        playButton.setScale(3);
         playButton.setInteractive();
         playButton.on('pointerdown', () => {
             // this.scene.start('Pause', { player: new Player(this, selectedValue), text: [] });
@@ -105,8 +79,8 @@ export class Menu extends Scene
             this.scene.start('GameScene', { gender: selectedValue });
           })
           
-        playButton.on('pointerover', () => playButton.setScale(0.55));
-        playButton.on('pointerout', () => playButton.setScale(0.5));
+        playButton.on('pointerover', () => playButton.setScale(3.15));
+        playButton.on('pointerout', () => playButton.setScale(3));
         container.add(playButton);
 
 

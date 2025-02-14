@@ -3,6 +3,7 @@ import { EventBus } from "../EventBus";
 import { Player } from "./utils/Player";
 import { DIALOG } from "./utils/const";
 
+    
 
 interface DataMasjid {
     text: DIALOG[];
