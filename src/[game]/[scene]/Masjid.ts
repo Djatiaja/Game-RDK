@@ -15,7 +15,7 @@ interface DataMasjid {
 const data: DataMasjid = {
     text: [
         {
-            name: "panitia",
+            name: "Ustad",
             dialogs: "Halo, selamat datang di acara kami!"
         },
         {
@@ -23,7 +23,7 @@ const data: DataMasjid = {
             dialogs: "Terima kasih, senang berada di sini."
         },
         {
-            name: "panitia",
+            name: "Ustad",
             dialogs: "Apa itu ramadhan?"
         },
         {
@@ -35,11 +35,11 @@ const data: DataMasjid = {
             dialogs: "Ramadhan adalah bulan ke-1 dalam kalender Hijriah, bulan ini diwajibkan bagi umat muslim untuk berpuasa selama sebulan penuh."
         },
         {   
-            name: "panitia",
+            name: "Ustad",
             dialogs: "Benar"
         },
         {
-            name: "Panitia",
+            name: "Ustad",
             dialogs: "Salah"
         }
     ],
@@ -71,7 +71,7 @@ export class Masjid extends Scene
         data.callback = () => {
             this.player.data.Achievements.achievement2.isAchieved = true;
         }
-        this.scene.launch('Textbox', {player: this.player, text:{ ...data.text}, order: JSON.parse(JSON.stringify(data.order)), callback: data.callback, correctAnswer: JSON.parse(JSON.stringify(data.correctAnswer))});
+        this.scene.launch('Textbox', {player: this.player, text:{ ...data.text}, order: JSON.parse(JSON.stringify(data.order)), callback: data.callback, correctAnswer: JSON.parse(JSON.stringify(data.correctAnswer)), npcProfile: "panitiaidle1",}, );
         this.scene.get('Textbox').events.on('shutdown', () => {
             this.scene.stop();
         });

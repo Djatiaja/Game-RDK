@@ -76,7 +76,7 @@ export class Preloader extends Scene {
 
         // Masjid
         this.load.image("Masjid", 'assets/game/Chatbox/Cutscene RDK-01.png');
-        // this.load.image  
+        this.load.image("Ustad", "assets/game/Chatbox/CHAR/USTADZ.png")
 
         // Player 
         this.load.image("lkbelakang1", 'assets/game/Karakter Cowo Cewe/idle lk/belakang/MC-43.png');

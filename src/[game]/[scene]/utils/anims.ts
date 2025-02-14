@@ -153,4 +153,57 @@ export const npcsAnims: Dictinary<Dictinary<animation>> = {
             repeat: -1
         }
     },
+
+    "Rafi": {
+        "Rafi_idle":
+        {
+            key: 'Rafi_idle',
+            frames:
+                [
+                    'panitiaidle1',
+                    'panitiaidle2'
+                ],
+            duration: 1000,
+            repeat: -1
+        }
+    },
+    "Naila": {
+        "Naila_idle":
+        {
+            key: 'Naila_idle',
+            frames:
+                [
+                    'panitiaidle1Pr',
+                    'panitiaidle2Pr'
+                ],
+            duration: 1000,
+            repeat: -1
+        }
+    },
+    "Hanif": {
+        "Hanif_idle":
+        {
+            key: 'Hanif_idle',
+            frames:
+                [
+                    'panitiaidle1',
+                    'panitiaidle2'
+                ],
+            duration: 1000,
+            repeat: -1
+        }
+    },
+    "Fahri": {
+        "Fahri_idle":
+        {
+            key: 'Fahri_idle',
+            frames:
+                [
+                    'PengunjungMerahLk1',
+                    'PengunjungMerahLk2'
+                ],
+            duration: 1000,
+            repeat: -1
+        }
+    },
 };

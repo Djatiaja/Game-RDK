@@ -243,25 +243,25 @@ export const PlayerDatas: PlayerData[] = [
         animations: [
             {
                 key: 'walk-down',
-                frames: ["prdepan1-walk", "prdepan2-walk"],
+                frames: ["prdepan1-walk","prdepan1", "prdepan2-walk","prdepan1"],
                 frameRate: 2,
                 repeat: -1
             },
             {
                 key: 'walk-up',
-                frames: ["prbelakang1-walk", "prbelakang2-walk"],
+                frames: ["prbelakang1-walk","prbelakang1", "prbelakang2-walk", "prbelakang1"],
                 frameRate: 2,
                 repeat: -1
             },
             {
                 key: 'walk-right',
-                frames: ["prkanan1-walk", "prkanan2-walk"],
+                frames: ["prkanan1-walk","prkanan1", "prkanan2-walk","prkanan1"],
                 frameRate: 2,
                 repeat: -1
             },
             {
                 key: 'walk-left',
-                frames: ["prkiri1-walk", "prkiri2-walk"],
+                frames: ["prkiri1-walk","prkiri1", "prkiri2-walk","prkiri1"],
                 frameRate: 2,
                 repeat: -1
             },

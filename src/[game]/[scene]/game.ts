@@ -295,8 +295,8 @@ export class GameScene extends Scene
                             this.control.setInInteraction(false)
                             this.player.data.Items.MakananRDK.acquired = true
                             this.player.data.Items.MakananRDK.quantity = 1
-                        }, correctAnswer: [], npcProfile: "Kupon", }, );
-                    }else if(key === "KuponP"){
+                        }, correctAnswer: [], npcProfile: "panitiaidle1", }, );
+                    }else if(key === "KuponW"){
                         if(this.player.data.Items.Kupon.quantity !== 1){
                             return
                         }
